@@ -1,0 +1,16 @@
+.hlx/*
+coverage/*
+logs/*
+node_modules/*
+.cache/
+
+helix-importer-ui
+.DS_Store
+
+.github/visual-tests/tests/*.ts-snapshots
+.github/visual-tests/test-results
+.github/visual-tests/screenshots/
+.github/visual-tests/node_modules/
+.github/visual-tests/generated-test-paths.txt
+
+difference_results.md
