@@ -1,0 +1,81 @@
+main .block.text.narrow {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 37.5rem;
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+main .block.text.left-aligned h1,
+main .block.text.left-aligned h2,
+main .block.text.left-aligned h3,
+main .block.text.left-aligned h4,
+main .block.text.left-aligned h5,
+main .block.text.left-aligned h6,
+main .block.text.left-aligned p,
+main .block.text.left-aligned div {
+  text-align: left;
+  margin-left: 0;
+}
+
+main .block.text.black h1,
+main .block.text.black h2,
+main .block.text.black h3,
+main .block.text.black h4,
+main .block.text.black h5,
+main .block.text.black h6,
+main .block.text.black p {
+  color: var(--light-black);
+}
+
+main .block.text.highlight {
+  margin-top: 5rem;
+}
+
+
+main .block.text.highlight h2 {
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+main .block.text.highlight a.button.primary {
+  color: var(--secondary);
+  background: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5em;
+  text-decoration: none;
+  padding: 0;
+  height: auto;
+}
+
+main .block.text.muted {
+  color: var(--steel-blue);
+  font-size: var(--body-font-size-s);
+  padding-bottom: 0.5rem;
+}
+
+main .block.text.alert {
+  color: #cf2e2e;
+  font-weight: bolder;
+  margin-bottom: 1rem;
+}
+
+main .block.text.border {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+main .block.text.lead {
+  font-size: var(--body-font-size-xl);
+}
+
+@media (min-width: 77rem) {
+  main .block.text.lead {
+    font-size: var(--body-font-size-xxl);
+  }
+}
+

@@ -1,0 +1,51 @@
+{
+  "name": "@sunstar/sunstar-foundation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sunstar Foundation Website",
+  "scripts": {
+    "test": "wtr \"./test/**/*.test.js\" --node-resolve --port=2000 --coverage",
+    "test:watch": "npm test -- --watch",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint blocks/**/*.css styles/**/*.css",
+    "lint": "npm run lint:js && npm run lint:css",
+    "prepare": "husky install",
+    "copy": "node ./tools/actions/copy.js",
+    "compare": "node ./tools/actions/compare.js"
+  },
+  "lint-staged": {
+    "*.js": "eslint .",
+    "*.css": "stylelint blocks/**/*.css styles/*.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hlxsites/sunstar-foundation.git"
+  },
+  "author": "Adobe",
+  "license": "Apache License 2.0",
+  "bugs": {
+    "url": "https://github.com/adobe/helix-project-boilerplate/issues"
+  },
+  "homepage": "https://www.sunstar-foundation.org",
+  "devDependencies": {
+    "@babel/core": "7.22.11",
+    "@babel/eslint-parser": "7.22.11",
+    "@esm-bundle/chai": "4.3.4-fix.0",
+    "@web/test-runner": "0.17.1",
+    "@web/test-runner-commands": "0.8.0",
+    "chai": "4.3.8",
+    "eslint": "8.48.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.28.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "sinon": "15.2.0",
+    "stylelint": "15.10.3",
+    "stylelint-config-standard": "34.0.0"
+  },
+
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "jslinq": "^1.0.22"
+  }
+}

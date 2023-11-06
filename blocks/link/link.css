@@ -1,0 +1,78 @@
+.block.link a.button {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  align-items: center;
+}
+
+.block.link.arrow a::after {
+  content: url("../../icons/angle-right-blue.svg");
+  position: relative;
+  left: 0.3rem;
+  top: 0.5rem;
+}
+
+.block.link.white-button a {
+  border: 1px solid var(--link-color);
+  color: unset;
+  background-color: unset;
+}
+
+.block.link.large-button a {
+  width: 100%;
+  font-size: 1.25rem;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5rem;
+}
+
+.block.link.large-button a::after {
+  content: unset;
+}
+
+.block.link.white-button a:hover {
+  color: var(--white);
+  background-color: var(--link-blue-color);
+  border-color: var(--dark-cyan-color);
+}
+
+.block.link ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.block.link ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.block.link ul > * {
+  flex-grow: 1;
+}
+
+.block.link.download a::after {
+  content: url("../../icons/download.svg");
+  position: relative;
+  left: 0.3rem;
+  top: 0.05rem;
+}
+
+@media (min-width: 62rem) {
+  .block.link.large-button a {
+    font-size: 1.5rem;
+  }
+
+  .block.link ul {
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+  }
+
+  .block.link ul li {
+    padding: 0;
+    margin: 0;
+  }
+}
