@@ -1,6 +1,6 @@
 {
   "project": "Sunstar",
-  "host": "main--sunstar--hlxsites.hlx.live",
+  "host": "main--sunstar-foundation--hlxsites.hlx.live",
   "plugins": [
     {
       "id": "library",
