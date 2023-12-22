@@ -582,8 +582,10 @@ main .block.centered {
   position: relative;
 }
 
-main .default-content-wrapper {
-  padding: 0 1rem;
+main .section.narrow .default-content-wrapper,
+main .section.narrower .default-content-wrapper,
+main .section.small-narrow .default-content-wrapper   {
+  padding: 0;
 }
 
 /* START Section Styles START */
