@@ -31,7 +31,7 @@ const MAX_LCP_CANDIDATE_BLOCKS = 2;
 
 const LANGUAGES = new Set(['en', 'jp']);
 
-const MODAL_FRAGMENTS_PATH_SEGMENT = '/fragments/modals/';
+export const MODAL_FRAGMENTS_PATH_SEGMENT = '/fragments/modals/';
 export const MODAL_FRAGMENTS_ANCHOR_SELECTOR = `a[href*="${MODAL_FRAGMENTS_PATH_SEGMENT}"]`;
 
 let language;
@@ -635,6 +635,52 @@ export async function loadScript(url, attrs = {}) {
   document.head.append(script);
   return loadingPromise;
 }
+
+export const handleModalClick = async (a, modalFragmentBlock) => {
+  a.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const target = e.currentTarget.parentElement.querySelector('a');
+    if (!target) return;
+    const { path } = target.dataset;
+    const modalId = target.dataset.modal;
+    const elem = document.getElementById(modalId);
+    const hasSearchParam = (target.dataset.hasSearchParam === 'true');
+
+    if (!elem || e.target.dataset.hasSearchParam) {
+      if (hasSearchParam) modalFragmentBlock.innerHTML = '';
+      const wrapper = document.createElement('div');
+      wrapper.className = 'modal-wrapper';
+      wrapper.id = modalId;
+      wrapper.dataset.url = target.dataset.url;
+
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = '<div class="modal-close"></div>';
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+      modal.append(modalContent);
+
+      if (path) {
+        const fragment = await loadFragment(path);
+        const formTitleEl = fragment.querySelector('h2');
+        if (formTitleEl) formTitleEl.outerHTML = `<div class="modal-form-title typ-title1">${formTitleEl.innerHTML}</div>`;
+        const formSubTitleEl = fragment.querySelector('h3');
+        if (formSubTitleEl) formSubTitleEl.outerHTML = `<p class="modal-form-subtitle">${formSubTitleEl.innerHTML}</p>`;
+        modalContent.append(fragment);
+      }
+
+      wrapper.append(modal);
+      modalFragmentBlock.append(wrapper);
+      wrapper.classList.add('visible');
+      const close = modal.querySelector('.modal-close');
+      close.addEventListener('click', () => {
+        wrapper.remove();
+      });
+    } else {
+      elem.classList.add('visible');
+    }
+  });
+};
 
 /**
  * Shuffles the contents of any array.

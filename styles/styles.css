@@ -809,7 +809,8 @@ main .section.no-margin-bottom {
 }
 
 /* section - no margin-top */
-main .section.no-margin-top {
+/* stylelint-disable-next-line no-descending-specificity */
+main .section.no-margin-top, main .section.no-margin-top .section-container, .block.no-margin-top {
   margin-top: 0;
 }
 
