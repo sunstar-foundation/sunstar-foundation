@@ -154,9 +154,7 @@ export default function decorate(block) {
 
           // remove empty paragraphs
           col.querySelectorAll('p').forEach((p) => {
-            if (!p.querySelector('a')) {
-              p.remove();
-            }
+            if (p.innerHTML === '') p.remove();
           });
 
           picture.querySelector('img').classList.add('video-modal');
