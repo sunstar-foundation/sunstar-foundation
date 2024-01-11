@@ -60,15 +60,11 @@ export const fixRelativeLinks = (document) => {
   });
 };
 
-export function addBreadCrumb(doc) {
+export function removeBreadCrumb(doc) {
   const breadcrumb = doc.querySelector('.section-breadcrumb');
 
   if (breadcrumb) {
-    // Not removing breadcrumb section from here because we need to extract breadcrumb title.
-    const cells = [['Breadcrumb']];
-    const table = WebImporter.DOMUtils.createTable(cells, doc);
-    breadcrumb.after(doc.createElement('hr'));
-    breadcrumb.replaceWith(table);
+    breadcrumb.remove();
   }
 }
 

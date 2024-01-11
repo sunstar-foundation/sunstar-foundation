@@ -12,6 +12,8 @@
 /* global WebImporter */
 /* eslint-disable no-console, class-methods-use-this */
 
+import { removeBreadCrumb } from './utils.js';
+
 const createMetadata = (main, document, params) => {
   const meta = {};
 
@@ -243,18 +245,6 @@ function extractEmbedItems(embedItems, noHrInsert) {
 function extractEmbed(document) {
   const embedItems = document.querySelectorAll('.wp-block-embed');
   extractEmbedItems(embedItems);
-}
-
-function addBreadCrumb(doc) {
-  const breadcrumb = doc.querySelector('.section-breadcrumb');
-
-  if (breadcrumb) {
-    // Not removing breadcrumb section from here because we need to extract breadcrumb title.
-    const cells = [['Breadcrumb']];
-    const table = WebImporter.DOMUtils.createTable(cells, doc);
-    breadcrumb.after(doc.createElement('hr'));
-    breadcrumb.replaceWith(table);
-  }
 }
 
 function removeCookiesBanner(document) {
@@ -619,7 +609,7 @@ function createPhotoGallery(doc) {
 function customImportLogic(doc) {
   removeCookiesBanner(doc);
 
-  addBreadCrumb(doc);
+  removeBreadCrumb(doc);
   fixRelativeLinks(doc);
   addListBlock(doc);
   addCarouselItems(doc);
