@@ -241,6 +241,10 @@ div.img-col > video {
   gap: 1rem;
 }
 
+.columns  > div > div p.button-container {
+  margin-bottom: 3rem;
+}
+
 .columns.centre-buttons p.button-container {
   justify-content: center;
 } 
