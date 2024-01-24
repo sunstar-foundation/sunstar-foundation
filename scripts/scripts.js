@@ -294,7 +294,7 @@ export function decorateAnchors(element = document) {
   ));
   decorateExternalAnchors(Array.from(anchors).filter(
     (a) => a.href && (!a.href.match(`^http[s]*://${window.location.host}/`)
-    || ['pdf'].includes(getUrlExtension(a.href).toLowerCase())),
+      || ['pdf'].includes(getUrlExtension(a.href).toLowerCase())),
   ));
 }
 
