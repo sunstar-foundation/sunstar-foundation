@@ -92,6 +92,7 @@ export default async function decorate(block) {
   } else {
     footerPath = footerMeta || (getLanguage() === 'jp' ? '/footer' : `/${getLanguage()}/footer`);
   }
+
   const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/footer') ? { cache: 'reload' } : {});
 
   if (resp.ok) {
