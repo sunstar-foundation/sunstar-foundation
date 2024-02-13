@@ -53,10 +53,10 @@ const createFragmentBlockFromSection = (document, url) => {
 
   const { pathname } = new URL(url);
   if (healthifyThinkingCard) {
-    block.push([`https://main--sunstar-foundation--hlxsites.hlx.page/${pathname.includes('jp') ? 'jp/' : ''}fragments/related-articles`]);
+    block.push([`https://main--sunstar-foundation--sunstar-foundation.hlx.page/${pathname.includes('jp') ? 'jp/' : ''}fragments/related-articles`]);
     section = healthifyThinkingCard;
   } else if (newsPressCard) {
-    block.push([`https://main--sunstar-foundation--hlxsites.hlx.page/${pathname.includes('jp') ? 'jp/' : ''}fragments/featured-articles`]);
+    block.push([`https://main--sunstar-foundation--sunstar-foundation.hlx.page/${pathname.includes('jp') ? 'jp/' : ''}fragments/featured-articles`]);
     section = newsPressCard;
   }
 
@@ -172,7 +172,7 @@ const remmoveNewsContactBar = (document) => {
   if (newsContactBar?.querySelector('.side-card')) {
     const block = [];
     block.push(['Fragment']);
-    block.push(['https://main--sunstar-foundation--hlxsites.hlx.page/fragments/press-contact-download-center']);
+    block.push(['https://main--sunstar-foundation--sunstar-foundation.hlx.page/fragments/press-contact-download-center']);
     const table = WebImporter.DOMUtils.createTable(block, document);
     newsContactBar.before(document.createElement('hr'));
     newsContactBar.replaceWith(table);

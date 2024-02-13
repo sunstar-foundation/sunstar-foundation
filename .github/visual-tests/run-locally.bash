@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-#export DOMAIN_MAIN="main--vg-macktrucks-com--hlxsites.hlx.page"
-#export DOMAIN_BRANCH="update-from-boilerplate--vg-macktrucks-com--hlxsites.hlx.page"
+#export DOMAIN_MAIN="main--vg-macktrucks-com--sunstar-foundation.hlx.page"
+#export DOMAIN_BRANCH="update-from-boilerplate--vg-macktrucks-com--sunstar-foundation.hlx.page"
 
-export DOMAIN_MAIN="main--sunstar-foundation--hlxsites.hlx.page"
-export DOMAIN_BRANCH="visual-tests--sunstar-foundation--hlxsites.hlx.page"
+export DOMAIN_MAIN="main--sunstar-foundation--sunstar-foundation.hlx.page"
+export DOMAIN_BRANCH="visual-tests--sunstar-foundation--sunstar-foundation.hlx.page"
 
 export TEST_PATHS="/"
 
