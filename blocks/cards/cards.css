@@ -53,6 +53,11 @@ main .block.cards {
   padding: 0;
 }
 
+.cards.no-padding > ul > li > a.button {
+  padding: 0;
+  flex-direction: column;
+}
+
 .cards.video-modal > ul > li > a.button {
   flex-direction: column;
 }
@@ -155,6 +160,14 @@ main .block.cards.light-background ul > li{
   padding: 0;
 }
 
+.cards.no-padding .cards-card-image {
+  width: 100%;
+}
+
+.cards.no-padding picture {
+  width: 100%;
+}
+
 .cards.video-modal .cards-card-image {
   height: auto;
   width: 100%;
@@ -245,7 +258,9 @@ main .cards.stacked-cards .cards-card-image {
 }
 
 .cards.no-padding .cards-card-body {
-  padding: 0;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 main .cards.stacked-cards .cards-card-body {
@@ -318,6 +333,12 @@ main .nolink .cards > ul > li .cards-card-image {
   border: 1px solid #3C46501A;
 }
 
+main .nolink .cards.no-padding > ul > li .cards-card-image {
+  height: 250px;
+  width: 100%;
+  margin: 0;
+}
+
 main .nolink .cards.info-points > ul > li .cards-card-image {
   width: auto;
   border: none;
@@ -332,6 +353,10 @@ main .cards-wrapper .stacked-cards .cards-card-body h3{
   line-height: 2rem;
   width: 100%;
   padding-bottom: 1rem;
+}
+
+main .cards.no-padding > ul {
+  justify-content: space-between;
 }
 
 .cards.nolink.no-buttons.stacked-cards.block > ul {
@@ -360,11 +385,19 @@ main .cards.video-modal .cards-card-image::after {
   border-radius: 50%;
 }
 
-
 @media screen and (min-width: 48rem) {
   .cards > ul > li {
     margin: 0 7px;
     flex: 0 0 calc(25% - 14px); /* 4 cards per row (-14px for margins) */
+    width: 100%;
+  }
+
+  .cards.no-padding > ul > li {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 0 calc(30%); /* 3 cards per row */
     width: 100%;
   }
 
@@ -490,6 +523,18 @@ main .cards.video-modal .cards-card-image::after {
     margin: 0 1rem;
     flex: 0 0 calc(25% - 2rem); /* 4 cards per row (-2rem for margins) */
     width: 100%;
+  }
+
+  .cards.no-padding > ul > li {
+    flex: 0 0 calc(30%); /* cards per row */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cards.no-padding > ul > li picture {
+    flex-basis: 100%;
   }
 
   .cards > ul > li:first-of-type,

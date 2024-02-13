@@ -36,6 +36,10 @@
   width: auto;
 }
 
+.columns.less-margin-bottom > div {
+  margin-bottom: 3rem;
+}
+
 .columns.small-margin > div {
   margin-bottom: 1.25rem;
 }
