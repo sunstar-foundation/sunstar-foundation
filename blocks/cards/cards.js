@@ -1,6 +1,60 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 import { cropString, handleModalClick, MODAL_FRAGMENTS_PATH_SEGMENT } from '../../scripts/scripts.js';
 
+function horizontalAlignToFlexValue(align) {
+  switch (align) {
+    case 'center':
+      return 'center';
+    case 'right':
+      return 'flex-end';
+    default:
+      return 'flex-start';
+  }
+}
+
+function applyHorizontalCellAlignment(block) {
+  block.querySelectorAll(':scope div[data-align]').forEach((d) => {
+    if (d.classList.contains('cards-card-body')) {
+      // This is a text card
+      if (d.dataset.align) {
+        d.style.textAlign = d.dataset.align;
+      }
+    } else {
+      // This is an image card
+      d.style.display = 'flex';
+      d.style.flexDirection = 'column';
+      d.style.alignItems = horizontalAlignToFlexValue(d.dataset.align);
+      d.style.justifyContent = d.dataset.align;
+    }
+  });
+}
+
+// Vertical Cell Alignment is only applied to non-text cards
+function applyVerticalCellAlignment(block) {
+  block.querySelectorAll(':scope > div > div:not(.cards-card-body').forEach((d) => {
+    // this is an image card
+    d.style.display = 'flex';
+    d.style.flexDirection = 'column';
+    d.style.alignItems = horizontalAlignToFlexValue(d.dataset.align);
+
+    switch (d.dataset.valign) {
+      case 'middle':
+        d.style.alignSelf = 'center';
+        break;
+      case 'bottom':
+        d.style.alignSelf = 'flex-end';
+        break;
+      default:
+        d.style.alignSelf = 'flex-start';
+    }
+  });
+}
+
+export function applyCellAlignment(block) {
+  applyHorizontalCellAlignment(block);
+  applyVerticalCellAlignment(block);
+}
+
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement('ul');
@@ -66,4 +120,5 @@ export default function decorate(block) {
   }
   block.textContent = '';
   block.append(ul);
+  applyCellAlignment(block);
 }
