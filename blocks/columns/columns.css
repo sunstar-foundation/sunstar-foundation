@@ -355,6 +355,10 @@ div.img-col > video {
   padding-right: 2rem;
 }
 
+.columns.dentistry-faq.block > div > div {
+  background: white;
+}
+
 .columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col),
 .columns:not(.no-padding) > div.img-col-wrapper > div.image-collage.autoblocked,
 .columns:not(.no-padding) > div > div.img-col-wrapper {
@@ -384,6 +388,26 @@ div.img-col > video {
   background-position: center;
   background-size: contain;
   transition: ease 0.2s;
+}
+
+.columns.plain-text.collapse.dentistry-faq {
+  padding: .2rem;
+  box-sizing: border-box;
+}
+
+.columns.plain-links.collapse.dentistry-faq > div h6::before,
+.columns.plain-text.collapse.dentistry-faq > div h6::before {
+  content: "Q";
+  background: #007CAD;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+  border-radius: 100%;
+  padding: 3px;
+  position: absolute;
+  left: 5px;
+  text-align: center;
 }
 
 .columns.plain-links.collapse > div h6.active::after,
@@ -420,6 +444,11 @@ div.img-col > video {
   padding: 1.25rem 0 1.25rem 1rem;
 }
 
+.columns.plain-text.collapse.dentistry-faq > div h6 {
+  line-height: 1rem;
+  padding: 1.25rem 0 1.25rem 3rem;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 .columns.plain-text.collapse > div > div {
   position: relative;
@@ -451,6 +480,13 @@ div.img-col > video {
 .columns.plain-text.collapse p.active {
   display: block;
   padding: 0 1rem 1rem;
+}
+
+.columns.plain-links.dentistry-faq.collapse ul.active,
+.columns.plain-text.dentistry-faq.collapse p.active {
+      display: block;
+      background: rgb(0 88 124 / 10%);
+      padding: 0;
 }
 
 .columns-container.backgroundimage .backgroundimage {
@@ -529,26 +565,74 @@ div.img-col > video {
 
 @media (min-width: 62rem) {
   .columns h2,
-  .columns:not(.no-buttons) h3,
-  .columns:not(.no-buttons) h4 {
-    font-size: var(--heading-font-size-ml);
-    font-weight: var(--font-weight-small);
-    margin: 0 auto 1.5rem;
-  }
+    .columns:not(.no-buttons) h3,
+    .columns:not(.no-buttons) h4 {
+      font-size: var(--heading-font-size-ml);
+      font-weight: var(--font-weight-small);
+      margin: 0 auto 1.5rem;
+    }
+  
+    .columns.plain-links.dentistry-faq.collapse ul.active,
+    .columns.plain-text.dentistry-faq.collapse p.active {
+      display: block;
+      padding: 0 1rem 1rem;
+      background: 0;
+    }
 
+    .columns > div {
+      flex-direction: unset;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 7.5rem;
+    }
+  
+    .collapse > div {
+      flex-direction: column;
+    }
+
+    .columns > div > div {
+      flex: 1;
+      order: unset;
+      flex-basis: 50%;
+    }
+  
+    .columns.tabular > div {
+      margin-bottom: 0;
+    }
+  
+    .columns.flex-start > div {
+      flex-direction: unset;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 5rem;
+    }
+  
+    .columns.small-margin > div {
+      margin-bottom: 1.5rem;
+    }
+  
+    .columns.top-down.collapse > div {
+      gap: 1.5rem;
+    }
+
+    main .columns.invert-even-col-in-narrow-view > div:nth-child(even) {
+      flex-direction: row;
+    }
+  
+    .columns.dentistry-faq.block > div > div {
+      background: rgb(0 88 124 / 10%);
+    }
+
+    .columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col) {
+      padding: 1rem 0;
+    }
+  
+    .columns.plain-text.collapse.dentistry-faq {
+      padding: 0;
+    }
+  
   .columns h6 {
     margin-top: unset;
-  }
-
-  .columns > div {
-    flex-direction: unset;
-    align-items: center;
-    gap: 3rem;
-    margin-bottom: 7.5rem;
-  }
-
-  .collapse > div {
-    flex-direction: column;
   }
 
   .columns p.button-container {
@@ -566,31 +650,6 @@ div.img-col > video {
 
   .columns a.button.primary {
     min-width: 11rem;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-    flex-basis: 50%;
-  }
-
-  .columns.tabular > div {
-    margin-bottom: 0;
-  }
-
-  .columns.flex-start > div {
-    flex-direction: unset;
-    align-items: flex-start;
-    gap: 3rem;
-    margin-bottom: 5rem;
-  }
-
-  .columns.small-margin > div {
-    margin-bottom: 1.5rem;
-  }
-
-  .columns.top-down.collapse > div {
-    gap: 1.5rem;
   }
 
   .columns > div .img-col {
@@ -658,20 +717,9 @@ div.img-col > video {
     background-position: center;
   }
 
-  main .columns.invert-even-col-in-narrow-view > div:nth-child(even) {
-    flex-direction: row;
-  }
-
   div.img-col > video {
     height: 337px;
     width: 337px;
-  }
-
-  .columns:not(.no-padding)
-    > div
-    > div:not(.columns-img-col)
-    div:not(.img-col) {
-    padding: 1rem 0;
   }
 
   .columns.text-and-image-in-column.overlap .button-container a {
@@ -709,6 +757,7 @@ div.img-col > video {
     border-top: 0;
     border-bottom: 0;
   }
+
 }
 
 @media (min-width: 77rem) {
