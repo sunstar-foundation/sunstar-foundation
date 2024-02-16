@@ -321,7 +321,7 @@ div.img-col > video {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-m)!important;
 }
 
 .columns.centre-buttons p.button-container {
@@ -540,7 +540,7 @@ div.img-col > video {
 .columns.text-and-image-in-column.overlap .button-container a {
   background-color: unset;
   color: var(--secondary);
-  font-size: var(--body-font-size-m);
+  font-size: var(--body-font-size-m)!important;
   padding: unset;
   display: block;
   margin: 0 -1.25rem;
