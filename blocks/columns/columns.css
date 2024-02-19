@@ -356,7 +356,7 @@ div.img-col > video {
   background: white;
 }
 
-.columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col) {
+.columns > div > div:not(.columns-img-col) div:not(.img-col) {
   padding: 0 1rem;
 }
 
