@@ -257,10 +257,6 @@ main .hero-horizontal-tabs a.button.primary.video-link::after {
     margin-bottom: 1.25rem;
   }
 
-  main .hero-horiz-tabs-text > h6 {
-    margin-bottom: 1.5rem;
-  }
-
   main .hero-horiz-tabs-text > p {
     font-size: 1rem;
   }
