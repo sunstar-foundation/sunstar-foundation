@@ -3,6 +3,11 @@ main .block.cards {
   margin: 0 auto 3.75rem;
 }
 
+.section.cards-container {
+  margin: 4rem 0 5rem;
+  padding: 0 1rem;
+}
+
 .cards > ul {
   display: flex;
   list-style: none;
