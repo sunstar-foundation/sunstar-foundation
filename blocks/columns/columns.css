@@ -618,7 +618,7 @@ div.img-col > video {
       background: rgb(0 88 124 / 10%);
     }
 
-    .columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col) {
+    .columns > div > div:not(.columns-img-col) div:not(.img-col) {
       padding: 1rem 0;
     }
   
@@ -749,6 +749,8 @@ div.img-col > video {
     border-top: 0;
     border-bottom: 0;
   }
+
+  
 
 }
 
