@@ -423,10 +423,6 @@ main .cards.video-modal .cards-card-image::after {
     margin: 8rem 0;
   }
 
-  .section.cards-container h2 {
-    margin:0;
-  }
-
   main .block.cards {
     padding-left: 0;
     padding-right: 0;

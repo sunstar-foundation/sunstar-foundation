@@ -356,9 +356,7 @@ div.img-col > video {
   background: white;
 }
 
-.columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col),
-.columns:not(.no-padding) > div.img-col-wrapper > div.image-collage.autoblocked,
-.columns:not(.no-padding) > div > div.img-col-wrapper {
+.columns:not(.no-padding) > div > div:not(.columns-img-col) div:not(.img-col) {
   padding: 0 1rem;
 }
 
@@ -449,10 +447,6 @@ div.img-col > video {
 /* stylelint-disable-next-line no-descending-specificity */
 .columns.plain-text.collapse > div > div {
   position: relative;
-}
-/* stylelint-disable-next-line no-descending-specificity */
-.columns.plain-text:not(.no-padding) > div > div {
-  padding: 0.3rem;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
