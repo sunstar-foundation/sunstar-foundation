@@ -22,6 +22,8 @@ main .block.cards {
   text-align: left;
   flex: 1;
   background-color: var(--white);
+  display: flex;
+  flex-direction: column;
 }
 
 .cards > ul > li:hover {
