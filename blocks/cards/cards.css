@@ -107,6 +107,14 @@ main .block.cards {
   color: var(--gray-dark);
 }
 
+.cards .cards-card-body h2,
+.cards .cards-card-body h3,
+.cards .cards-card-body h4,
+.cards .cards-card-body h5 {
+  margin-bottom: 1rem!important;
+  margin-top: 0!important;
+}
+
 .cards.large-text .cards-card-body .date {
   font-size: var(--body-font-size-xs);
 }
@@ -265,9 +273,10 @@ main .cards.stacked-cards .cards-card-image {
 }
 
 .cards.no-padding .cards-card-body {
-  padding: .5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 main .cards.stacked-cards .cards-card-body {
@@ -533,7 +542,7 @@ main .cards.video-modal .cards-card-image::after {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .cards.no-padding > ul > li picture {
