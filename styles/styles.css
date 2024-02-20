@@ -646,8 +646,8 @@ main .section.small-narrow .default-content-wrapper   {
 
 main .section .section-container {
   max-width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 main .section.auto-top-spacing .section-container {
