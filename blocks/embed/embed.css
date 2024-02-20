@@ -17,7 +17,6 @@ main .embed.embed-twitter .twitter-tweet-rendered {
 
 main .embed .embed-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9;
   position: relative;
 }
 
