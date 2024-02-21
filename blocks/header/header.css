@@ -1052,6 +1052,14 @@ header .mega-container .left-content-container .mega-sub-menu .mobile-menu-heade
     top: 5rem;
     margin-bottom: 0.5rem;
   }
+
+  header nav.nav-bottom-right h3 {
+    margin: 0.5rem 0 0.5rem 2rem;
+  }
+
+  header nav.nav-bottom-right {
+    justify-content: right;
+  }
 }
 
 @media (min-width: 48rem) and (max-width: 77rem) {
