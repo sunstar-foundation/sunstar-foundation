@@ -146,7 +146,7 @@ export default async function decorate(block) {
     navPath = navMeta || (getLanguage() === 'jp' ? '/nav' : `/${getLanguage()}/nav`);
     navTreeResp = await fetch(`/nav-tree.json?sheet=${getLanguage()}`);
   }
-
+  navPath = '/_drafts/shroti/dentistrynav';
   const resp = await fetch(`${navPath}.plain.html`);
   const navTreeJson = await navTreeResp.json();
   if (resp.ok) {
