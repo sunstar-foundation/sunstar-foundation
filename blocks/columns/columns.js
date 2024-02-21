@@ -1,13 +1,18 @@
 import { handleModalClick, MODAL_FRAGMENTS_PATH_SEGMENT, wrapImgsInLinks } from '../../scripts/scripts.js';
 
 export function applySplitPercentages(block) {
-  const ratios = [];
+  let ratios = [];
   for (let i = 0; i < block.classList.length; i += 1) {
     const cls = block.classList[i];
     if (cls.startsWith('split-')) {
       const varName = `--${cls}`;
       const numbers = getComputedStyle(block).getPropertyValue(varName);
-      numbers.split(':').forEach((n) => ratios.push(n));
+      if (!numbers) {
+        const clsParts = cls.split('-');
+        ratios = clsParts.slice(1).map((n) => `${n}%`);
+      } else {
+        ratios = numbers.split(':');
+      }
       break;
     }
   }
