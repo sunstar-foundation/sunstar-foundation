@@ -105,6 +105,28 @@ function decorateBottomNav(nav, placeholders, navTreeJson) {
 const navDecorators = {
   'nav-top': decorateTopNav, 'nav-middle': decorateMiddleNav, 'nav-bottom-right': decorateBottomRightNav, 'nav-bottom': decorateBottomNav,
 };
+
+function getSectionClass(headerSection) {
+  let sectionClassNames = [];
+
+  // Find the index of the div containing "Style"
+  let styleDivIndex = -1;
+  headerSection.querySelectorAll('div').forEach((div, index) => {
+    if (div.textContent.trim() === 'Style') {
+      styleDivIndex = index;
+    }
+  });
+
+  if (styleDivIndex >= 0) {
+    const adjacentDiv = headerSection.querySelectorAll('div')[styleDivIndex + 1];
+    const textContent = adjacentDiv.textContent.trim();
+    // Create a valid class name based on the text content
+    sectionClassNames = textContent.split(',').map((item) => item.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+  }
+
+  return sectionClassNames;
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -140,6 +162,14 @@ export default async function decorate(block) {
     navClasses.forEach((navClass, idx) => {
       const nav = document.createElement('nav');
       nav.classList.add(navClass);
+      const sectionMeta = fetchedNav.querySelector(':scope > div .section-metadata');
+      if (sectionMeta) {
+        const classNames = getSectionClass(fetchedNav.querySelector(':scope > div'));
+        if (classNames && classNames.length > 0) {
+          nav.classList.add(...classNames);
+        }
+        sectionMeta.remove();
+      }
       nav.innerHTML = fetchedNav.querySelectorAll(':scope>div')[idx].innerHTML;
       navDecorators[navClass](nav, placeholders);
       idxcounter = idx;
