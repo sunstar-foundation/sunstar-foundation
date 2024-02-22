@@ -40,6 +40,8 @@ function horizontalAlignToFlexValue(align) {
       return 'center';
     case 'right':
       return 'flex-end';
+    case 'justify':
+      return 'stretch';
     default:
       return 'flex-start';
   }
