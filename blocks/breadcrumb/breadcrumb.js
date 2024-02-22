@@ -36,20 +36,26 @@ async function createAutoBreadcrumb(block) {
   const urlForIndex = (index) => prependSlash(pathname.split(pathSeparator).slice(1, index + 2).join(pathSeparator));
   const pathSplit = pathname.split(pathSeparator);
   const currentTitle = getMetadata('breadcrumbtitle');
+  const isDentistryPage = pathname.startsWith('/dentistry/');
 
   const breadcrumbs = [
     {
       name: placeholders.hometext,
-      url_path: `${getLanguangeSpecificPath(pathSeparator)}`,
+      url_path: isDentistryPage ? '/dentistry' : `${getLanguangeSpecificPath(pathSeparator)}`,
     },
-    ...pathSplit.slice(1, -1).map((part, index) => ({
-      // get the breadcrumb title from the index; if the index does not contain it,
-      // use the placeholders by appending '-title' to the part
-      // if no breadcrumb title is found, skip the part (empty string)
-      // eslint-disable-next-line max-len
-      name: pageIndex.find((page) => page.path === urlForIndex(index))?.breadcrumbtitle ?? (placeholders[`${part}-title`] ?? ''),
-      url_path: urlForIndex(index),
-    })),
+    ...pathSplit.slice(1, -1).map((part, index) => {
+      if (isDentistryPage && part === 'dentistry') {
+        return {};
+      }
+      return {
+        // get the breadcrumb title from the index; if the index does not contain it,
+        // use the placeholders by appending '-title' to the part
+        // if no breadcrumb title is found, skip the part (empty string)
+        // eslint-disable-next-line max-len
+        name: pageIndex.find((page) => page.path === urlForIndex(index))?.breadcrumbtitle ?? (placeholders[`${part}-title`] ?? ''),
+        url_path: urlForIndex(index),
+      };
+    }),
     {
       // get the breadcrumb title from the metadata; if the metadata does not contain it,
       // the last part of the path is used as the breadcrumb title
