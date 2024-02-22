@@ -44,6 +44,10 @@ const externalNavigationMappings = [
   ['/award', '/dentistry'],
   ['/oral-care', '/dentistry'],
   ['/dentistry', '/'],
+  ['/grants', '/en'],
+  ['/about-us', '/en'],
+  ['/award', '/en'],
+  ['/oral-care', '/en'],
   ['/', '/en'],
   ['/en', '/'],
 ];
