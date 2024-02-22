@@ -204,7 +204,7 @@ h5,
 h6 {
   color: var(--primary);
   font-family: var(--heading-font-family);
-  line-height: 1.25;
+  line-height: 1.25em;
   scroll-margin: calc(var(--nav-height) + 1em);
   margin: 0;
   font-weight: var(--font-weight-medium);
