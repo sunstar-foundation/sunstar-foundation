@@ -44,6 +44,52 @@ describe('Columns Block', () => {
     expect(cd.style.flexBasis).to.equal('');
   });
 
+  it('Applies split percentages correctly when class starts with split-', async () => {
+    const block = document.createElement('div');
+    block.classList.add('split-50-50');
+    block.innerHTML = '<div><div></div><div></div></div>';
+
+    scripts.applySplitPercentages(block);
+
+    const divs = block.querySelectorAll('div > div > div');
+    expect(divs[0].style.flexBasis).to.equal('50%');
+    expect(divs[1].style.flexBasis).to.equal('50%');
+  });
+
+  it('Applies split percentages correctly when class does not start with split-', async () => {
+    const block = document.createElement('div');
+    block.classList.add('test');
+    block.innerHTML = '<div><div></div><div></div></div>';
+
+    scripts.applySplitPercentages(block);
+
+    const divs = block.querySelectorAll('div > div > div');
+    expect(divs[0].style.flexBasis).to.equal('');
+    expect(divs[1].style.flexBasis).to.equal('');
+  });
+
+  it('Applies split percentages correctly when there are more divs than ratios', async () => {
+    const block = document.createElement('div');
+    block.classList.add('split-50-30');
+    block.innerHTML = '<div><div></div><div></div></div>';
+
+    scripts.applySplitPercentages(block);
+
+    const divs = block.querySelectorAll('div > div > div');
+    expect(divs[0].style.flexBasis).to.equal('50%');
+    expect(divs[1].style.flexBasis).to.equal('30%');
+  });
+
+  it('Does not apply split percentages when there are no divs', async () => {
+    const block = document.createElement('div');
+    block.classList.add('split-50-30');
+
+    scripts.applySplitPercentages(block);
+
+    const divs = block.querySelectorAll('div');
+    expect(divs.length).to.equal(0);
+  });
+
   it('Applies alignment to non-text cells', () => {
     const block = document.querySelector('.columns.split-testratio1');
 
