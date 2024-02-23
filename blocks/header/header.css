@@ -79,6 +79,8 @@ header nav.nav-bottom-right.fixed {
 }
 
 header nav.nav-bottom-right h5 {
+  display: flex;
+  gap: .25rem;
   margin-left: 1.5rem;
 }
 
