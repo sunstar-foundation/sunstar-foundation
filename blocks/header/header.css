@@ -304,6 +304,10 @@ header nav.nav-bottom.open {
   z-index: 100;
 }
 
+header nav.nav-bottom.open + nav.nav-bottom-right h3 > a {
+  padding-right: 1.5rem;
+}
+
 header nav.nav-bottom > .menu-level-1 {
   display: none;
   position: absolute;
@@ -1073,6 +1077,10 @@ header .mega-container .left-content-container .mega-sub-menu .mobile-menu-heade
   header nav.nav-middle h6 {
     width:auto;
     font-size: var(--heading-font-size-s);;
+  }
+
+  header nav.nav-bottom-right.fixed {
+    margin-left: 1rem;
   }
 
   header nav.nav-bottom-right {
