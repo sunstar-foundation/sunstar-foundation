@@ -304,10 +304,6 @@ header nav.nav-bottom.open {
   z-index: 100;
 }
 
-header nav.nav-bottom.open + nav.nav-bottom-right h3 > a {
-  padding-right: 1.5rem;
-}
-
 header nav.nav-bottom > .menu-level-1 {
   display: none;
   position: absolute;
@@ -488,6 +484,10 @@ header .nav-bottom .menu-level-1 > .other-items > li > a {
   color: var(--white);
   font-size: var(--body-font-size-s);
   text-decoration: none;
+}
+
+header nav.nav-bottom.open + nav.nav-bottom-right h3 > a {
+  padding-right: 1.5rem;
 }
 
 /* Search Styles */
