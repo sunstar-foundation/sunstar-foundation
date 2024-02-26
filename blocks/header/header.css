@@ -58,7 +58,7 @@ header .social > ul {
 
 /* stylelint-disable-next-line no-descending-specificity */
 header nav.nav-bottom-right h3 a {
-  font-size: var(--heading-font-size-m);
+  font-size: var(--heading-font-size-xs);
   color: var(--primary);
 }
 
@@ -768,6 +768,11 @@ header .mega-container .left-content-container .mega-sub-menu .mobile-menu-heade
 }
 
 @media (min-width: 77rem) {
+/* stylelint-disable-next-line no-descending-specificity */
+  header nav.nav-bottom-right h3 a {
+    font-size: var(--heading-font-size-m);
+  }
+
   header {
     border-bottom: 1px solid var(--transparent-grey-light-color);
   }
