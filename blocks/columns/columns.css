@@ -2,6 +2,8 @@
   padding: 2rem 0;
 }
 
+
+
 .columns {
   margin: 2rem 0;
 }
@@ -107,6 +109,14 @@
   font-size: 14px;
   line-height: 1.6;
   padding-bottom: 10px;
+}
+
+.section.dark .columns > div {
+  background-color: var(--surface-primary);
+}
+
+.section.dark .columns > div > div.text-col-wrapper {
+  padding: 2rem 0!important;
 }
 
 .columns.native-image-sizes .text-col {

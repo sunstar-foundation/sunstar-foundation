@@ -38,6 +38,7 @@
   --gray-300: #ccc;
   --gray-dark: #343a40;
   --primary: #00587c;
+  --blue-800: #00587c;
   --secondary: #007cad;
   --tertiary: var(--secondary);
   --success: #28a745;
@@ -78,6 +79,11 @@
   --link-blue-color: #003d56;
   --dark-cyan-color: #003449;
   --primary-08-transparency: #00587ccc;
+
+
+  /* Tokens - Colors */
+
+  --surface-primary: var(--blue-800);
 
 
   /* fonts */
