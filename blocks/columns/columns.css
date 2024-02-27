@@ -1,8 +1,10 @@
+.columns.dark > div > div.text-col-wrapper {
+  padding: 2rem 0!important;
+}
+
 .section.light-blue .columns > div > div.text-col-wrapper {
   padding: 2rem 0;
 }
-
-
 
 .columns {
   margin: 2rem 0;
@@ -48,6 +50,10 @@
 
 .columns.small-margin > div {
   margin-bottom: 1.25rem;
+}
+
+.columns.dark > div {
+  background-color: var(--surface-primary);
 }
 
 .columns > div > div p {
@@ -111,14 +117,6 @@
   padding-bottom: 10px;
 }
 
-.section.dark .columns > div {
-  background-color: var(--surface-primary);
-}
-
-.section.dark .columns > div > div.text-col-wrapper {
-  padding: 2rem 0!important;
-}
-
 .columns.native-image-sizes .text-col {
   width: 100%;
 }
@@ -141,6 +139,7 @@
 .columns:not(.native-image-sizes) div.image-collage.autoblocked {
   width: 100%;
 }
+
 
 .columns h2,
 .columns h3,
