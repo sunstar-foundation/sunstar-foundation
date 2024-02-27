@@ -1,3 +1,7 @@
+.columns.dark > div > div.text-col-wrapper {
+  padding: 2rem 0!important;
+}
+
 .section.light-blue .columns > div > div.text-col-wrapper {
   padding: 2rem 0;
 }
@@ -46,6 +50,10 @@
 
 .columns.small-margin > div {
   margin-bottom: 1.25rem;
+}
+
+.columns.dark > div {
+  background-color: var(--surface-primary);
 }
 
 .columns > div > div p {
@@ -131,6 +139,7 @@
 .columns:not(.native-image-sizes) div.image-collage.autoblocked {
   width: 100%;
 }
+
 
 .columns h2,
 .columns h3,
