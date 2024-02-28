@@ -19,7 +19,7 @@ export default function decorate(block) {
       // Remove unclickable behaviour to the anchor after 3 seconds
       setTimeout(() => {
         anchor.classList.remove('unclickable');
-      }, 3000);
+      }, 3500);
 
       // remove empty paragraphs
       row.querySelectorAll('p').forEach((p) => {
