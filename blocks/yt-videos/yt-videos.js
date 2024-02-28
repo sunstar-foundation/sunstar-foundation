@@ -13,6 +13,14 @@ export default function decorate(block) {
       anchor.classList.add('video-modal');
       anchor.appendChild(picture);
 
+      // add unclickable behaviour to the anchor
+      anchor.classList.add('unclickable');
+
+      // Remove unclickable behaviour to the anchor after 3 seconds
+      setTimeout(() => {
+        anchor.classList.remove('unclickable');
+      }, 3000);
+
       // remove empty paragraphs
       row.querySelectorAll('p').forEach((p) => {
         if (!p.classList.contains('button-container')) {

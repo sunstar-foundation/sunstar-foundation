@@ -1,3 +1,5 @@
+.unclickable { pointer-events: none; }
+
 .yt-videos.block a.button:any-link {
     height: 25rem;
     width: 100%;
