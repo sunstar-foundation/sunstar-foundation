@@ -1,5 +1,5 @@
 .yt-videos.block a.button:any-link {
-    height: 50rem;
+    height: 25rem;
     width: 100%;
     position: relative;
 }
@@ -7,7 +7,7 @@
 .yt-videos.block picture {
     position: absolute;
     width: 100%;
-    height: 50rem;
+    height: 25rem;
     background-position: center;
     background-size: cover;
 }
@@ -16,4 +16,35 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.yt-videos.block a:after {
+  display: block;
+  position: absolute;
+  content: "";
+  background: url("../../icons/play.svg") no-repeat center;
+  background-size: cover;
+  height: 5.25rem;
+  width: 5.25rem;
+  border-radius: 50%;
+  top: calc(50% - 5.25rem / 2);
+  left: calc(50% - 5.25rem / 2);
+}
+
+@media (min-width: 62rem) {
+    .yt-videos.block a.button:any-link {
+        height: 50rem;
+    }
+    
+    .yt-videos.block picture {
+        height: 50rem;
+    }
+    
+    .yt-videos.block a:after {
+      height: 8.25rem;
+      width: 8.25rem;
+      top: calc(50% - 8.25rem / 2);
+      left: calc(50% - 8.25rem / 2);
+    }
+
 }
