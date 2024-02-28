@@ -963,7 +963,7 @@ header .mega-container .left-content-container .mega-sub-menu .mobile-menu-heade
   header .mega-container .left-content-container .main-item-summary a h2 {
     margin-bottom: 1rem;
     margin-top: 4rem;
-    font-size: var(--heading-font-size-xmxl);
+    font-size: var(--heading-font-size-l);
     font-weight: var(--font-weight-small);
     color: var(--white);
   }
