@@ -8,9 +8,6 @@ export default function decorate(block) {
           const anchorIsModal = anchor && anchor.classList.contains('video-link');
   
           if (picture && anchorIsModal) {
-            const contentWrapper = document.createElement('div');
-            contentWrapper.classList.add('video-wrapper');
-  
             row.classList.add('video-modal');
   
             // add the picture inside the anchor tag and remove the text
@@ -26,8 +23,6 @@ export default function decorate(block) {
             });
   
             picture.querySelector('img').classList.add('video-modal');
-            row.parentElement.insertBefore(contentWrapper, row);
-            contentWrapper.appendChild(row);
           }
     });
   }
