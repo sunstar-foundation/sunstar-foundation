@@ -18,7 +18,7 @@
     object-fit: cover;
 }
 
-.yt-videos.block a:after {
+.yt-videos.block a::after {
   display: block;
   position: absolute;
   content: "";
@@ -40,7 +40,7 @@
         height: 50rem;
     }
     
-    .yt-videos.block a:after {
+    .yt-videos.block a::after {
       height: 8.25rem;
       width: 8.25rem;
       top: calc(50% - 8.25rem / 2);
