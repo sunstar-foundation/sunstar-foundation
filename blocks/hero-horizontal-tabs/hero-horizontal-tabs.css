@@ -29,8 +29,9 @@ main .hero-horizontal-tabs.block {
   flex-direction: column;
 }
 
-main div.tab-item {
+main div.tab-item:not(.active) {
   animation: fade-out 0ms linear forwards;
+  display: none;
 }
 
 main div.tab-item.active {
