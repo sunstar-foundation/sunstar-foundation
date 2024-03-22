@@ -857,6 +857,7 @@ export const handleModalClick = async (element, target, modalFragmentBlock) => {
       closeBtn.classList.add('modal-close');
       closeBtn.addEventListener('click', () => {
         dialog.close();
+        dialogWrapper.remove();
       });
 
       const modalContent = document.createElement('div');
