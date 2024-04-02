@@ -189,13 +189,8 @@ export default function decorate(block) {
     wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
     wrapper.prepend(placeholder);
 
-    // add unclickable behaviour to the wrapper
+    // add unclickable behaviour to the EmbedYtVideo. Removing the behaviour in delayed.js
     if (checkYt) wrapper.classList.add('unclickable');
-
-    // Remove unclickable behaviour to the wrapper after 3.5 seconds
-    setTimeout(() => {
-      wrapper.classList.remove('unclickable');
-    }, 3500);
 
     wrapper.addEventListener('click', () => {
       loadEmbed(block, grandChilds, link);

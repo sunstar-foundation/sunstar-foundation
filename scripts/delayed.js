@@ -45,10 +45,18 @@ async function loadGTM() {
   document.head.prepend(scriptTag);
 }
 
+function playEmbedYtVideo() {
+  document.querySelectorAll('.embed-placeholder').forEach((embed) => {
+    embed.classList.remove('unclickable');
+  });
+}
+
 if (!isInternalPage()) {
   await loadConsentManager();
   await loadAdobeLaunch();
   if (getEnvType() === 'live') {
     await loadGTM();
   }
+  // remove unclickable behaviour to the EmbedYtVideo
+  playEmbedYtVideo();
 }
