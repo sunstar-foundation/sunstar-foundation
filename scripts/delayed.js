@@ -57,6 +57,7 @@ if (!isInternalPage()) {
   if (getEnvType() === 'live') {
     await loadGTM();
   }
-  // remove unclickable behaviour to the EmbedYtVideo
-  playEmbedYtVideo();
 }
+
+// remove unclickable behaviour to the EmbedYtVideo
+playEmbedYtVideo();
