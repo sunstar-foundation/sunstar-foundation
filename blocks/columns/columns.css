@@ -36,12 +36,17 @@
   margin-bottom: 4rem;
 }
 
+
 .columns > div > div {
   order: 1;
 }
 
 .columns > div > div > div {
   width: auto;
+}
+
+.columns.no-margin > div {
+  margin: 0;
 }
 
 .columns.less-margin-bottom > div {
@@ -762,7 +767,6 @@ div.img-col > video {
     border-top: 0;
     border-bottom: 0;
   }
-
   
 
 }
