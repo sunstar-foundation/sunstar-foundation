@@ -865,8 +865,8 @@ main .section.no-margin-top, main .section.no-margin-top .section-container, .bl
 
 /* section - no margin-bottom */
 /* stylelint-disable-next-line no-descending-specificity */
-main .section.no-margin-bottom, main .section.no-margin-bottom .section-container, .block.no-margin-bottom {
-  margin-bottom: 0;
+main .section.no-margin-bottom, main .section.no-margin-bottom .section-container, .block.no-margin-bottom * {
+  margin-bottom: 0!important;
 }
 
 .float-right {
