@@ -28,6 +28,10 @@
   margin-bottom: 0;
 }
 
+.columns.no-margin {
+  margin: 0;
+}
+
 .columns > div {
   display: flex;
   align-items: flex-start;
