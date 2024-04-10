@@ -823,20 +823,31 @@ export async function loadFragment(path) {
   return null;
 }
 
-export async function loadScript(url, attrs = {}) {
-  const script = document.createElement('script');
-  script.src = url;
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [name, value] of Object.entries(attrs)) {
-    script.setAttribute(name, value);
-  }
-  const loadingPromise = new Promise((resolve, reject) => {
-    script.onload = resolve;
-    script.onerror = reject;
+/**
+ * Loads a non module JS file.
+ * @param {string} src URL to the JS file
+ * @param {Object} attrs additional optional attributes
+ */
+export async function loadScript(src, attrs) {
+  return new Promise((resolve, reject) => {
+    if (!document.querySelector(`head > script[src="${src}"]`)) {
+      const script = document.createElement('script');
+      script.src = src;
+      if (attrs) {
+        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+        for (const attr in attrs) {
+          script.setAttribute(attr, attrs[attr]);
+        }
+      }
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.append(script);
+    } else {
+      resolve();
+    }
   });
-  document.head.append(script);
-  return loadingPromise;
 }
+
 export const handleModalClick = async (element, target, modalFragmentBlock) => {
   element.addEventListener('click', async (e) => {
     e.preventDefault();
