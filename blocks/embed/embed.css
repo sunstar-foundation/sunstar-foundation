@@ -1,3 +1,5 @@
+.unclickable { pointer-events: none; }
+
 main .embed {
   width: unset;
   text-align: center;

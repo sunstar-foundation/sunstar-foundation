@@ -11,6 +11,7 @@
  */
 
    /* fallback font for Noto Sans (normal - 400) */
+
    @font-face {
     font-family: "noto-sans-normal-400-fallback";
     size-adjust: 105.431%;
