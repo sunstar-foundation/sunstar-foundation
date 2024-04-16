@@ -5,8 +5,8 @@
  */
 
 import { loadCSS } from '../../scripts/lib-franklin.js';
-import { loadConsentManager, loadScript, getEnvType } from '../../scripts/scripts.js';
-import { loadAdobeLaunch, loadGTM } from '../../scripts/delayed.js';
+import { loadConsentManager, loadScript } from '../../scripts/scripts.js';
+import { loadAdobeLaunch } from '../../scripts/delayed.js';
 
 const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
     <iframe src="${url.href}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen=""
@@ -190,9 +190,6 @@ export default function decorate(block) {
     wrapper.addEventListener('click', async () => {
       await loadConsentManager();
       await loadAdobeLaunch();
-      if (getEnvType() === 'live') {
-        await loadGTM();
-      }
       loadEmbed(block, grandChilds, link);
     });
     block.append(wrapper);
