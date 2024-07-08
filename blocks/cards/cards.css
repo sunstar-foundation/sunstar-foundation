@@ -16,6 +16,11 @@ main .block.cards {
   padding-inline-start: 0;
 }
 
+.cards.grid-3-cols > ul, .cards.grid-4-cols > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .cards > ul > li {
   padding: 0;
   box-sizing: border-box;
@@ -541,6 +546,16 @@ main .cards.video-modal .cards-card-image::after {
     width: 100%;
   }
 
+  .cards.grid-4-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .cards.grid-3-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .cards.no-padding > ul > li {
     flex: 0 0 calc(30%); /* cards per row */
     margin: 0;
@@ -651,3 +666,4 @@ main .cards.video-modal .cards-card-image::after {
   }
 
 }
+
