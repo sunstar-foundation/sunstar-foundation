@@ -175,9 +175,14 @@ main .block.cards.light-background ul > li{
 }
 
 .cards .cards-card-image {
-  height: 12.5rem;
+  aspect-ratio: 4/3;
   margin: 0;
   padding: 0;
+}
+
+.cards.aspect-ratio-16-9 .cards-card-image {
+  aspect-ratio: 16/9;
+  height: unset;
 }
 
 .cards.no-padding .cards-card-image {
@@ -188,14 +193,14 @@ main .block.cards.light-background ul > li{
   width: 100%;
 }
 
+.cards .cards-card-body div {
+  margin: 0;
+  text-wrap: balance;
+}
+
 .cards.video-modal .cards-card-image {
   height: auto;
   width: 100%;
-}
-
-.cards .cards-card-body div {
-  height: 100%;
-  margin: 0;
 }
 
 .cards .cards-card-body div:last-child {
