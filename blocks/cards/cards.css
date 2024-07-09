@@ -401,7 +401,7 @@ main .cards.video-modal .cards-card-image::after {
 
 @media screen and (min-width: 48rem) {
   .cards > ul > li {
-    margin: 0 7px;
+    margin: 0;
     flex: 0 0 calc(25% - 14px); /* 4 cards per row (-14px for margins) */
     width: 100%;
   }
@@ -466,6 +466,7 @@ main .cards.video-modal .cards-card-image::after {
   .cards > ul > li {
     padding: 0;
     text-align: center;
+    margin: 0;
   }
 
   .cards > ul > li > a.button {
@@ -539,7 +540,7 @@ main .cards.video-modal .cards-card-image::after {
   }
 
   .cards > ul > li {
-    margin: 0 1rem;
+    margin: 0;
     flex: 0 0 calc(25% - 2rem); /* 4 cards per row (-2rem for margins) */
     width: 100%;
   }
