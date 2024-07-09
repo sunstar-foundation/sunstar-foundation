@@ -30,12 +30,9 @@ main .block.cards {
   border: none;
   transition: all 0.15s ease-in-out;
   margin: 0;
-  align-items: center;
   text-align: left;
   flex: 1;
   background-color: var(--white);
-  display: flex;
-  flex-direction: column;
 }
 
 .cards > ul > li:hover {
@@ -456,6 +453,11 @@ main .cards.video-modal .cards-card-image::after {
     grid-gap: 2rem;
   }
 
+  .cards.grid-4-cols > ul, .cards.grid-3-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cards.grid.two-columns > ul {
     grid-template-columns: repeat(2, 16.875rem);
     justify-content: center;
@@ -513,7 +515,7 @@ main .cards.video-modal .cards-card-image::after {
     object-fit: contain;
   }
 
-  main .block.cards.stacked-cards > ul > li{
+  main .block.cards.stacked-cards > ul > li {
     flex-direction: column;
     text-align: center;
   }
