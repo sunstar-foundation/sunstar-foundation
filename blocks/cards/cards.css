@@ -14,6 +14,13 @@ main .block.cards {
   flex-flow: column nowrap;
   padding: 0;
   padding-inline-start: 0;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.cards.grid-3-cols > ul, .cards.grid-4-cols > ul {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .cards > ul > li {
@@ -22,13 +29,10 @@ main .block.cards {
   box-shadow: 0 2px 12px 0 rgb(60 70 80 / 20%);
   border: none;
   transition: all 0.15s ease-in-out;
-  margin: 0 0 1.5rem;
-  align-items: center;
+  margin: 0;
   text-align: left;
   flex: 1;
   background-color: var(--white);
-  display: flex;
-  flex-direction: column;
 }
 
 .cards > ul > li:hover {
@@ -92,12 +96,9 @@ main .block.cards {
   margin: revert;
 }
 
-
+.cards.content-center .cards-card-body,
+.cards.info-points .cards-card-body,
 .cards.video-modal .cards-card-body {
-  text-align: center;
-}
-
-.cards.info-points .cards-card-body {
   text-align: center;
 }
 
@@ -170,9 +171,14 @@ main .block.cards.light-background ul > li{
 }
 
 .cards .cards-card-image {
-  height: 12.5rem;
+  aspect-ratio: 4/3;
   margin: 0;
   padding: 0;
+}
+
+.cards.aspect-ratio-16-9 .cards-card-image {
+  aspect-ratio: 16/9;
+  height: unset;
 }
 
 .cards.no-padding .cards-card-image {
@@ -183,14 +189,14 @@ main .block.cards.light-background ul > li{
   width: 100%;
 }
 
+.cards .cards-card-body div {
+  margin: 0;
+  text-wrap: balance;
+}
+
 .cards.video-modal .cards-card-image {
   height: auto;
   width: 100%;
-}
-
-.cards .cards-card-body div {
-  height: 100%;
-  margin: 0;
 }
 
 .cards .cards-card-body div:last-child {
@@ -337,15 +343,7 @@ main .cards.stacked-cards ul > li {
   display: flex;
 }
 
-main .nolink .cards > ul > li .cards-card-image {
-  height: 135px;
-  width: 240px;
-  display: flex;
-  align-self: flex-start;
-  padding: 0;
-  justify-content: center;
-  overflow: hidden;
-  flex-shrink: 0;
+main .cards.border > ul > li .cards-card-image {
   border: 1px solid #3C46501A;
 }
 
@@ -403,7 +401,7 @@ main .cards.video-modal .cards-card-image::after {
 
 @media screen and (min-width: 48rem) {
   .cards > ul > li {
-    margin: 0 7px;
+    margin: 0;
     flex: 0 0 calc(25% - 14px); /* 4 cards per row (-14px for margins) */
     width: 100%;
   }
@@ -455,6 +453,11 @@ main .cards.video-modal .cards-card-image::after {
     grid-gap: 2rem;
   }
 
+  .cards.grid-4-cols > ul, .cards.grid-3-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cards.grid.two-columns > ul {
     grid-template-columns: repeat(2, 16.875rem);
     justify-content: center;
@@ -463,6 +466,7 @@ main .cards.video-modal .cards-card-image::after {
   .cards > ul > li {
     padding: 0;
     text-align: center;
+    margin: 0;
   }
 
   .cards > ul > li > a.button {
@@ -512,7 +516,7 @@ main .cards.video-modal .cards-card-image::after {
     object-fit: contain;
   }
 
-  main .block.cards.stacked-cards > ul > li{
+  main .block.cards.stacked-cards > ul > li {
     flex-direction: column;
     text-align: center;
   }
@@ -536,9 +540,19 @@ main .cards.video-modal .cards-card-image::after {
   }
 
   .cards > ul > li {
-    margin: 0 1rem;
+    margin: 0;
     flex: 0 0 calc(25% - 2rem); /* 4 cards per row (-2rem for margins) */
     width: 100%;
+  }
+
+  .cards.grid-4-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .cards.grid-3-cols > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .cards.no-padding > ul > li {
