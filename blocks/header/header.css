@@ -48,6 +48,13 @@ header .social {
   padding: 0 1rem 0 1.5rem;
 }
 
+header nav.nav-bottom-parent.fixed {
+  position: fixed;
+  top: 0;
+  background-color: var(--button-text-color);
+  width: 100%;
+}
+
 header .social > ul {
   padding: 0;
   margin: 0;
@@ -254,7 +261,6 @@ header nav.nav-middle {
 }
 
 header.menu-open .nav-middle {
-  position: fixed;
   z-index: 2;
   left: 0;
   right: 0;
