@@ -67,7 +67,6 @@ function attachWindowResizeListeners(nav) {
   widerScreenWidth.addEventListener('change', (event) => {
     const toggler = nav.querySelector('.navbar-toggler');
     const navBottomParent = document.querySelector('.nav-bottom-parent');
-    const header = document.querySelector('header');
 
     if (event.matches) {
       if (nav.classList.contains('open')) {
