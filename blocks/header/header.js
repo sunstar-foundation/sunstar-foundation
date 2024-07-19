@@ -23,6 +23,30 @@ function decorateMiddleNav(nav) {
   a.setAttribute('aria-label', 'Sunstar Home');
 }
 
+const addRemoveFixedClass = (desktopView, navBottom, header) => {
+  const scroll = document.querySelector('nav.nav-top').offsetHeight
+    + document.querySelector('nav.nav-middle').offsetHeight;
+
+  if (desktopView) {
+    if (document.documentElement.scrollTop > scroll) {
+      header.classList.add('fixed');
+    } else {
+      header.classList.remove('fixed');
+    }
+    navBottom.classList.remove('fixed');
+  } else {
+    if (document.documentElement.scrollTop > scroll) {
+      navBottom.classList.add('fixed');
+    } else {
+      navBottom.classList.remove('fixed');
+    }
+    header.classList.remove('fixed');
+  }
+};
+
+const getNavBottom = () => document.querySelector('.nav-bottom-parent')
+  || document.querySelector('.nav-bottom');
+
 function getNavbarToggler() {
   const navbarToggl = htmlToElement(`<button class="navbar-toggler" aria-label="Menu">
   <span class="mobile-icon">
@@ -66,7 +90,7 @@ function attachWindowResizeListeners(nav) {
   const widerScreenWidth = window.matchMedia('(min-width: 77rem)');
   widerScreenWidth.addEventListener('change', (event) => {
     const toggler = nav.querySelector('.navbar-toggler');
-    const navBottomParent = document.querySelector('.nav-bottom-parent');
+    const navBottom = getNavBottom();
 
     if (event.matches) {
       if (nav.classList.contains('open')) {
@@ -85,12 +109,11 @@ function attachWindowResizeListeners(nav) {
       if (backButton) {
         backButton.remove();
       }
-      header?.classList.add('fixed');
-      navBottomParent?.classList.remove('fixed');
+
+      addRemoveFixedClass(event.matches, navBottom, header);
     } else {
       toggler.classList.add('visible');
-      navBottomParent?.classList.add('fixed');
-      header?.classList.remove('fixed');
+      addRemoveFixedClass(event.matches, navBottom, header);
     }
   }, true);
 }
@@ -212,15 +235,11 @@ export default async function decorate(block) {
       });
     }
     window.addEventListener('scroll', () => {
-      const navBottomParent = document.querySelector('.nav-bottom-parent');
+      const navBottom = getNavBottom();
       const header = document.querySelector('header');
       const widerScreenWidth = window.matchMedia('(min-width: 77rem)');
 
-      if (document.documentElement.scrollTop > document.querySelector('nav.nav-top').offsetHeight + document.querySelector('nav.nav-middle').offsetHeight) {
-        (widerScreenWidth.matches ? header : navBottomParent)?.classList.add('fixed');
-      } else {
-        (widerScreenWidth.matches ? header : navBottomParent)?.classList.remove('fixed');
-      }
+      addRemoveFixedClass(widerScreenWidth.matches, navBottom, header);
     });
 
     const backdrop = document.createElement('div');

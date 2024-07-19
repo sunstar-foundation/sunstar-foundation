@@ -55,6 +55,13 @@ header nav.nav-bottom-parent.fixed {
   width: 100%;
 }
 
+header nav.nav-bottom.fixed {
+  position: fixed;
+  top: 0;
+  background-color: var(--button-text-color);
+  width: 100%;
+}
+
 header .social > ul {
   padding: 0;
   margin: 0;
