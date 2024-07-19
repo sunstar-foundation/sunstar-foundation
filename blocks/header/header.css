@@ -48,18 +48,28 @@ header .social {
   padding: 0 1rem 0 1.5rem;
 }
 
-header nav.nav-bottom-parent.fixed {
-  position: fixed;
-  top: 0;
-  background-color: var(--button-text-color);
-  width: 100%;
-}
-
+header nav.nav-bottom-parent.fixed,
 header nav.nav-bottom.fixed {
   position: fixed;
-  top: 0;
-  background-color: var(--button-text-color);
+  background-color: var(--white);
   width: 100%;
+  max-width: 75rem;
+  top: 0;
+}
+
+header nav.nav-bottom-parent.fixed::before,
+header nav.nav-bottom.fixed::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 106%;
+  background-color: var(--white);
+  z-index: -1;
+  box-shadow: 0 0.125rem 0.5rem 0 #3c46500f;
+  border-bottom: 1px solid var(--transparent-grey-light-color);
 }
 
 header .social > ul {

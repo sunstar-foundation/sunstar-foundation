@@ -23,24 +23,14 @@ function decorateMiddleNav(nav) {
   a.setAttribute('aria-label', 'Sunstar Home');
 }
 
-const addRemoveFixedClass = (desktopView, navBottom, header) => {
+const addRemoveFixedClass = (navBottom) => {
   const scroll = document.querySelector('nav.nav-top').offsetHeight
     + document.querySelector('nav.nav-middle').offsetHeight;
 
-  if (desktopView) {
-    if (document.documentElement.scrollTop > scroll) {
-      header.classList.add('fixed');
-    } else {
-      header.classList.remove('fixed');
-    }
-    navBottom.classList.remove('fixed');
+  if (document.documentElement.scrollTop > scroll) {
+    navBottom.classList.add('fixed');
   } else {
-    if (document.documentElement.scrollTop > scroll) {
-      navBottom.classList.add('fixed');
-    } else {
-      navBottom.classList.remove('fixed');
-    }
-    header.classList.remove('fixed');
+    navBottom.classList.remove('fixed');
   }
 };
 
@@ -90,7 +80,6 @@ function attachWindowResizeListeners(nav) {
   const widerScreenWidth = window.matchMedia('(min-width: 77rem)');
   widerScreenWidth.addEventListener('change', (event) => {
     const toggler = nav.querySelector('.navbar-toggler');
-    const navBottom = getNavBottom();
 
     if (event.matches) {
       if (nav.classList.contains('open')) {
@@ -109,11 +98,8 @@ function attachWindowResizeListeners(nav) {
       if (backButton) {
         backButton.remove();
       }
-
-      addRemoveFixedClass(event.matches, navBottom, header);
     } else {
       toggler.classList.add('visible');
-      addRemoveFixedClass(event.matches, navBottom, header);
     }
   }, true);
 }
@@ -236,10 +222,7 @@ export default async function decorate(block) {
     }
     window.addEventListener('scroll', () => {
       const navBottom = getNavBottom();
-      const header = document.querySelector('header');
-      const widerScreenWidth = window.matchMedia('(min-width: 77rem)');
-
-      addRemoveFixedClass(widerScreenWidth.matches, navBottom, header);
+      addRemoveFixedClass(navBottom);
     });
 
     const backdrop = document.createElement('div');
