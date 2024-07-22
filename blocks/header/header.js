@@ -23,6 +23,20 @@ function decorateMiddleNav(nav) {
   a.setAttribute('aria-label', 'Sunstar Home');
 }
 
+const addRemoveFixedClass = (navBottom) => {
+  const scroll = document.querySelector('nav.nav-top').offsetHeight
+    + document.querySelector('nav.nav-middle').offsetHeight;
+
+  if (document.documentElement.scrollTop > scroll) {
+    navBottom.classList.add('fixed');
+  } else {
+    navBottom.classList.remove('fixed');
+  }
+};
+
+const getNavBottom = () => document.querySelector('.nav-bottom-parent')
+  || document.querySelector('.nav-bottom');
+
 function getNavbarToggler() {
   const navbarToggl = htmlToElement(`<button class="navbar-toggler" aria-label="Menu">
   <span class="mobile-icon">
@@ -66,6 +80,7 @@ function attachWindowResizeListeners(nav) {
   const widerScreenWidth = window.matchMedia('(min-width: 77rem)');
   widerScreenWidth.addEventListener('change', (event) => {
     const toggler = nav.querySelector('.navbar-toggler');
+
     if (event.matches) {
       if (nav.classList.contains('open')) {
         nav.classList.remove('open');
@@ -206,11 +221,8 @@ export default async function decorate(block) {
       });
     }
     window.addEventListener('scroll', () => {
-      if (document.documentElement.scrollTop > document.querySelector('nav.nav-top').offsetHeight + document.querySelector('nav.nav-middle').offsetHeight) {
-        document.querySelector('header').classList.add('fixed');
-      } else {
-        document.querySelector('header').classList.remove('fixed');
-      }
+      const navBottom = getNavBottom();
+      addRemoveFixedClass(navBottom);
     });
 
     const backdrop = document.createElement('div');
