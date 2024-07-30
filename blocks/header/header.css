@@ -646,6 +646,11 @@ header .mega-dropdown {
   z-index: 10
 }
 
+header .mega-dropdown.fixed {
+  left: calc((100vw - 75rem) / -2);
+  width: 100vw;
+}
+
 header .mega-dropdown.visible {
   display: block;
 }
