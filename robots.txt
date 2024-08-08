@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.sunstar-foundation.org/sitemap.xml
+Sitemap: https://www.sunstar-foundation.org/sitemap-index.xml
 

@@ -1,8 +1,18 @@
 version: 1
 auto-generated: true
 sitemaps:
-  default:
-    origin: https://www.sunstar-foundation.org
-    source: /query-index.json
-    destination: /sitemap.xml
-    lastmod: YYYY-MM-DD
+  sunstar-foundation:
+    default: ja
+    languages:
+      ja:
+        origin: https://www.sunstar-foundation.org
+        source: /query-index.json?sheet=jp-search
+        destination: /sitemap-ja.xml
+        hreflang: ja
+      en:
+        origin: https://www.sunstar-foundation.org
+        source: /query-index.json?sheet=en-search
+        destination: /sitemap-en.xml
+        hreflang: en
+        alternate: /en/{path}
+
