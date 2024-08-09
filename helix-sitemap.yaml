@@ -8,13 +8,13 @@ sitemaps:
         origin: https://www.sunstar-foundation.org
         source: /query-index.json?sheet=jp-search
         destination: /sitemap-ja.xml
-        hreflang: ja
         lastmod: YYYY-MM-DD
+        hreflang: ja
       en:
         origin: https://www.sunstar-foundation.org
         source: /query-index.json?sheet=en-search
         destination: /sitemap-en.xml
+        lastmod: YYYY-MM-DD
         hreflang: en
         alternate: /en/{path}
-        lastmod: YYYY-MM-DD
 
