@@ -62,13 +62,13 @@ function constructPayload(form) {
 
 async function submitForm(form) {
   const payload = constructPayload(form);
-  const resp = await fetch(form.dataset.action, {
+  const resp = await fetch(submitURL, {
     method: 'POST',
     cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ data: payload }),
+    body: JSON.stringify(payload),
   });
   await resp.text();
   sampleRUM('form:submit');
@@ -188,6 +188,7 @@ function createValidateLabel(msg) {
 
 let captchaElement;
 let userconsentElement;
+let submitURL;
 
 /**
  * id of the reCaptcha service in the user consent manager (todo: make configurable via form?)
@@ -336,6 +337,10 @@ function createCaptcha(fd) {
   return captchaElement;
 }
 
+function setSubmitURL(fd) {
+  submitURL = fd.Extra;
+}
+
 async function createForm(formURL) {
   const { pathname } = new URL(formURL);
   const resp = await fetch(pathname);
@@ -402,6 +407,9 @@ async function createForm(formURL) {
         break;
       case 'captcha':
         append(createCaptcha(fd));
+        break;
+      case 'paUrl':
+        setSubmitURL(fd);
         break;
       default:
         append(createLabel(fd));
