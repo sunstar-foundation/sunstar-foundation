@@ -1,6 +1,8 @@
 import { getLanguage, loadScript } from '../../scripts/scripts.js';
 import { sampleRUM } from '../../scripts/lib-franklin.js';
 
+let submitURL;
+
 function ensureParagraph(el) {
   // add <p> if missing
   if (!el.querySelector('p')) {
@@ -188,7 +190,6 @@ function createValidateLabel(msg) {
 
 let captchaElement;
 let userconsentElement;
-let submitURL;
 
 /**
  * id of the reCaptcha service in the user consent manager (todo: make configurable via form?)
