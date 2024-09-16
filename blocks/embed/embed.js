@@ -50,7 +50,7 @@ const embedYoutube = (url, isLite) => {
       embed += url.search;
     }
     embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-        <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;"
+        <iframe src="https://www.youtube-nocookie.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}&enablejsapi=1` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;"
         allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
       </div>`;
   }
@@ -174,11 +174,13 @@ const loadEmbed = (block, grandChilds, link, existingClassList) => {
 };
 
 export default function decorate(block) {
+  let checkYt;
   const link = block.querySelector('a').href;
   const childDiv = block.querySelector('div');
   const grandChilds = childDiv ? childDiv.querySelectorAll('div') : [];
   const placeholder = block.querySelector('picture');
   const existingClassList = block.classList;
+  if (link) checkYt = link.includes('youtube') || link.includes('youtu.be');
   block.textContent = '';
 
   if (placeholder) {
@@ -186,6 +188,10 @@ export default function decorate(block) {
     wrapper.className = 'embed-placeholder';
     wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
     wrapper.prepend(placeholder);
+
+    // add unclickable behaviour to the EmbedYtVideo. Removing the behaviour in delayed.js
+    if (checkYt) wrapper.classList.add('unclickable');
+
     wrapper.addEventListener('click', () => {
       loadEmbed(block, grandChilds, link);
     });
