@@ -6,7 +6,7 @@ import { getEnvType, loadConsentManager, loadScript } from './scripts.js';
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
 
-async function loadAdobeLaunch() {
+export async function loadAdobeLaunch() {
   const adobeotmSrc = {
     dev: 'https://assets.adobedtm.com/467469cdd595/f9651373cafd/launch-a46d93f0c752-development.min.js',
     preview: 'https://assets.adobedtm.com/467469cdd595/f9651373cafd/launch-8108dcbd2d02-staging.min.js',
@@ -25,7 +25,7 @@ window.addEventListener('consentmanager', () => {
 /**
  * Google Tag Manager
 * */
-async function loadGTM() {
+export async function loadGTM() {
   const scriptTag = document.createElement('script');
   scriptTag.innerHTML = `
         (function (w, d, s, l, i) {
