@@ -807,6 +807,8 @@ export function getEnvType(hostname = window.location.hostname) {
 
     'main--sunstar-foundation--sunstar-foundation.hlx.page': 'preview',
     'main--sunstar-foundation--sunstar-foundation.hlx.live': 'live',
+    'main--sunstar-foundation--sunstar-foundation.aem.page': 'preview',
+    'main--sunstar-foundation--sunstar-foundation.aem.live': 'live',
   };
   return fqdnToEnvType[hostname] || 'dev';
 }
