@@ -1,4 +1,5 @@
 import { handleModalClick, MODAL_FRAGMENTS_PATH_SEGMENT, wrapImgsInLinks } from '../../scripts/scripts.js';
+import { loadEmbed } from '../embed/embed.js';
 
 export function applySplitPercentages(block) {
   let ratios = [];
@@ -114,6 +115,9 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
   const videoAnchor = [...block.querySelectorAll('a')].filter((a) => a.href.includes('.mp4'));
+  const youtubeAnchor = [...block.querySelectorAll("a")].filter((a) =>
+    a.href.toLowerCase().includes("youtu.be")
+  );
   const textOnlyColBlock = !block.querySelector('picture') && !videoAnchor.length;
 
   // setup image columns
@@ -219,6 +223,11 @@ export default function decorate(block) {
         }
       });
     });
+  }
+
+  if (youtubeAnchor.length && block.classList.contains("embed-yt")) {
+    const videoWrapper = youtubeAnchor[0].parentElement;
+    loadEmbed(videoWrapper, [], youtubeAnchor[0].href);
   }
 
   const isModalFragmentAvailable = document.querySelector('.modal-fragment') !== null;

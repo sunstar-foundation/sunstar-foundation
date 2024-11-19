@@ -38,6 +38,7 @@
 
 .columns > div > div {
   order: 1;
+  width: 100%;
 }
 
 .columns > div > div > div {
