@@ -1,5 +1,5 @@
 .columns.dark > div > div.text-col-wrapper {
-  padding: 2rem 0!important;
+  padding: 2rem 0 !important;
 }
 
 .section.light-blue .columns > div > div.text-col-wrapper {
@@ -141,7 +141,6 @@
   width: 100%;
 }
 
-
 .columns h2,
 .columns h3,
 .columns h4 {
@@ -199,7 +198,7 @@
 }
 
 .columns.modal-fragment picture.video-modal::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -211,7 +210,7 @@
   background-size: cover;
   background-position: center;
   min-width: auto;
-  box-shadow: 0 2px 12px 0 #3C465033;
+  box-shadow: 0 2px 12px 0 #3c465033;
   border-radius: 50%;
 }
 
@@ -221,7 +220,10 @@
   vertical-align: middle;
 }
 
-.columns:not(.native-image-sizes).text-and-image-in-column > div div.text-col img {
+.columns:not(.native-image-sizes).text-and-image-in-column
+  > div
+  div.text-col
+  img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -316,7 +318,6 @@
   margin: unset;
 }
 
-
 .columns:not(.no-padding) > div div.non-singleton-img {
   margin: 0 1rem;
 }
@@ -335,7 +336,7 @@ div.img-col > video {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  font-size: var(--body-font-size-m)!important;
+  font-size: var(--body-font-size-m) !important;
 }
 
 .columns.centre-buttons p.button-container {
@@ -397,10 +398,11 @@ div.img-col > video {
   background-position: center;
   background-size: contain;
   transition: ease 0.2s;
+  cursor: pointer;
 }
 
 .columns.plain-text.collapse.dentistry-faq {
-  padding: .2rem;
+  padding: 0.2rem;
   box-sizing: border-box;
 }
 
@@ -489,9 +491,9 @@ div.img-col > video {
 
 .columns.plain-links.dentistry-faq.collapse ul.active,
 .columns.plain-text.dentistry-faq.collapse p.active {
-      display: block;
-      background: rgb(0 88 124 / 10%);
-      padding: 0;
+  display: block;
+  background: rgb(0 88 124 / 10%);
+  padding: 0;
 }
 
 .columns-container.backgroundimage .backgroundimage {
@@ -548,7 +550,7 @@ div.img-col > video {
 .columns.text-and-image-in-column.overlap .button-container a {
   background-color: unset;
   color: var(--secondary);
-  font-size: var(--body-font-size-m)!important;
+  font-size: var(--body-font-size-m) !important;
   padding: unset;
   display: block;
   margin: 0 -1.25rem;
@@ -569,76 +571,76 @@ div.img-col > video {
 }
 
 @media (min-width: 62rem) {
-    .columns h2,
-    .columns:not(.no-buttons) h3,
-    .columns:not(.no-buttons) h4 {
-      font-size: var(--h1-font-size-desktop);
-      font-weight: var(--font-weight-small);
-      margin: 0 auto 1.5rem;
-    }
+  .columns h2,
+  .columns:not(.no-buttons) h3,
+  .columns:not(.no-buttons) h4 {
+    font-size: var(--h1-font-size-desktop);
+    font-weight: var(--font-weight-small);
+    margin: 0 auto 1.5rem;
+  }
 
-    .columns h6 {
-      margin-top: unset;
-    }
-  
-    .columns.plain-links.dentistry-faq.collapse ul.active,
-    .columns.plain-text.dentistry-faq.collapse p.active {
-      display: block;
-      padding: 0 1rem 1rem;
-      background: 0;
-    }
+  .columns h6 {
+    margin-top: unset;
+  }
 
-    .columns > div {
-      flex-direction: unset;
-      align-items: center;
-      gap: 3rem;
-      margin-bottom: 7.5rem;
-    }
-  
-    .collapse > div {
-      flex-direction: column;
-    }
+  .columns.plain-links.dentistry-faq.collapse ul.active,
+  .columns.plain-text.dentistry-faq.collapse p.active {
+    display: block;
+    padding: 0 1rem 1rem;
+    background: 0;
+  }
 
-    .columns > div > div {
-      flex: 1;
-      order: unset;
-      flex-basis: 50%;
-    }
-  
-    .columns.tabular > div {
-      margin-bottom: 0;
-    }
-  
-    .columns.flex-start > div {
-      flex-direction: unset;
-      align-items: flex-start;
-      gap: 3rem;
-      margin-bottom: 5rem;
-    }
-  
-    .columns.small-margin > div {
-      margin-bottom: 1.5rem;
-    }
-  
-    .columns.top-down.collapse > div {
-      gap: 1.5rem;
-    }
+  .columns > div {
+    flex-direction: unset;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 7.5rem;
+  }
 
-    main .columns.invert-even-col-in-narrow-view > div:nth-child(even) {
-      flex-direction: row;
-    }
-  
-    .columns.dentistry-faq.block > div > div {
-      background: rgb(0 88 124 / 10%);
-    }
+  .collapse > div {
+    flex-direction: column;
+  }
 
-    .columns > div > div:not(.columns-img-col) div:not(.img-col) {
-      padding: 1rem 0;
-    }
-  
-    .columns.plain-text.collapse.dentistry-faq {
-      padding: 0;
-    }
+  .columns > div > div {
+    flex: 1;
+    order: unset;
+    flex-basis: 50%;
+  }
+
+  .columns.tabular > div {
+    margin-bottom: 0;
+  }
+
+  .columns.flex-start > div {
+    flex-direction: unset;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .columns.small-margin > div {
+    margin-bottom: 1.5rem;
+  }
+
+  .columns.top-down.collapse > div {
+    gap: 1.5rem;
+  }
+
+  main .columns.invert-even-col-in-narrow-view > div:nth-child(even) {
+    flex-direction: row;
+  }
+
+  .columns.dentistry-faq.block > div > div {
+    background: rgb(0 88 124 / 10%);
+  }
+
+  .columns > div > div:not(.columns-img-col) div:not(.img-col) {
+    padding: 1rem 0;
+  }
+
+  .columns.plain-text.collapse.dentistry-faq {
+    padding: 0;
+  }
 
   .columns p.button-container {
     display: flex;
@@ -763,9 +765,6 @@ div.img-col > video {
     border-top: 0;
     border-bottom: 0;
   }
-
-  
-
 }
 
 @media (min-width: 77rem) {
@@ -799,11 +798,23 @@ div.img-col > video {
     margin-left: 1rem;
   }
 
-  .columns.tabular > div:nth-child(2) > div:nth-child(2) > div > p > picture > img {
+  .columns.tabular
+    > div:nth-child(2)
+    > div:nth-child(2)
+    > div
+    > p
+    > picture
+    > img {
     margin-left: 0.8rem;
   }
 
-  .columns.tabular > div:nth-child(3) > div:nth-child(2) > div > p > picture > img {
+  .columns.tabular
+    > div:nth-child(3)
+    > div:nth-child(2)
+    > div
+    > p
+    > picture
+    > img {
     margin-left: 1.8rem;
   }
 

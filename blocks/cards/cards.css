@@ -17,6 +17,7 @@ main .block.cards {
   align-items: flex-start;
 }
 
+.cards.grid-2-cols > ul,
 .cards.grid-3-cols > ul,
 .cards.grid-4-cols > ul {
   display: grid;
@@ -410,6 +411,18 @@ main .cards.video-modal .cards-card-image::after {
     width: 100%;
   }
 
+  .cards.grid-2-cols > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards.grid-3-cols > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cards.grid-4-cols > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cards.no-padding > ul > li {
     margin: 0;
     display: flex;
@@ -546,6 +559,10 @@ main .cards.video-modal .cards-card-image::after {
     margin: 0;
     flex: 0 0 calc(25% - 2rem); /* 4 cards per row (-2rem for margins) */
     width: 100%;
+  }
+
+  .cards.grid-2-cols > ul {
+    grid-template-columns: 1fr 1fr;
   }
 
   .cards.grid-4-cols > ul {
