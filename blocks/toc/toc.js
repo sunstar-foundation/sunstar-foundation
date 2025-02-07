@@ -41,14 +41,18 @@ function decorateTOC(block) {
 function buildTOCSide(block) {
   decorateTOC(block);
   block.closest(".section").classList.add("right-toc");
+
   const mainContent = document.createElement("div");
   mainContent.classList.add("main-content");
   const main = document.querySelector("main");
+
   [...main.querySelectorAll(".section")].forEach((section) => {
+    // Skip breadcrumb the second section which is the header section and any other section that is not the data-toc-section
     if (!section.classList.contains("breadcrumb-container")) {
       mainContent.append(section);
     }
   });
+
   const contentWrap = document.createElement("div");
   contentWrap.classList.add("content-wrap");
   const toc = mainContent.querySelector(".section.toc-container");
@@ -67,7 +71,24 @@ function buildTOCSide(block) {
   } else {
     mainContent.append(contentWrap); // If no children, just append
   }
+
   main.append(mainContent);
+
+  const allSectionsAfterWrap = [];
+  let foundContentWrap = false;
+
+  [...mainContent.children].forEach((child) => {
+    if (foundContentWrap) {
+      allSectionsAfterWrap.push(child);
+    }
+    if (child === contentWrap) {
+      foundContentWrap = true;
+    }
+  });
+
+  // Move the sections to <main>
+  allSectionsAfterWrap.forEach((section) => main.append(section));
+
   [...main.querySelectorAll(".section")].forEach((section) => {
     [...section.querySelectorAll(".hidden.block")].forEach((hidden) => {
       hidden.style.display = "none";
