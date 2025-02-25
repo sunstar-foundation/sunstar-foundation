@@ -1,4 +1,8 @@
-import { handleModalClick, MODAL_FRAGMENTS_PATH_SEGMENT, wrapImgsInLinks } from '../../scripts/scripts.js';
+import {
+  handleModalClick,
+  MODAL_FRAGMENTS_PATH_SEGMENT,
+  wrapImgsInLinks,
+} from '../../scripts/scripts.js';
 import { loadEmbed } from '../embed/embed.js';
 
 export function applySplitPercentages(block) {
@@ -115,8 +119,8 @@ export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-${cols.length}-cols`);
   const videoAnchor = [...block.querySelectorAll('a')].filter((a) => a.href.includes('.mp4'));
-  const youtubeAnchor = [...block.querySelectorAll("a")].filter((a) =>
-    a.href.toLowerCase().includes("youtu.be")
+  const youtubeAnchor = [...block.querySelectorAll('a')].filter((a) =>
+    a.href.toLowerCase().includes('youtu.be')
   );
   const textOnlyColBlock = !block.querySelector('picture') && !videoAnchor.length;
 
@@ -225,9 +229,12 @@ export default function decorate(block) {
     });
   }
 
-  if (youtubeAnchor.length && block.classList.contains("embed-yt")) {
-    const videoWrapper = youtubeAnchor[0].parentElement;
-    loadEmbed(videoWrapper, [], youtubeAnchor[0].href);
+  if (youtubeAnchor.length && block.classList.contains('embed-yt')) {
+    // remove the anchor and load the embed
+    youtubeAnchor.forEach((a) => {
+      const videoWrapper = a.parentElement;
+      loadEmbed(videoWrapper, [], a.href);
+    });
   }
 
   const isModalFragmentAvailable = document.querySelector('.modal-fragment') !== null;
@@ -238,18 +245,14 @@ export default function decorate(block) {
       if (anchors.length) {
         [...anchors].forEach((a) => {
           if (
-            a?.dataset?.path?.startsWith(MODAL_FRAGMENTS_PATH_SEGMENT)
-            && isModalFragmentAvailable
+            a?.dataset?.path?.startsWith(MODAL_FRAGMENTS_PATH_SEGMENT) &&
+            isModalFragmentAvailable
           ) {
             const pictureElement = row.querySelector('picture');
             // make poster image clickable to open modal
             if (pictureElement) {
               pictureElement.classList.add('video-modal');
-              handleModalClick(
-                pictureElement,
-                a,
-                document.querySelector('.modal-fragment'),
-              );
+              handleModalClick(pictureElement, a, document.querySelector('.modal-fragment'));
             }
           }
         });
