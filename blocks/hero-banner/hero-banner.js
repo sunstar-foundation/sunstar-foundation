@@ -77,7 +77,12 @@ function decorateTextContent(headingRow, target, placeholders, overlap) {
     linkedin.appendChild(sprite);
 
     pElement.append(linkedin);
-  } else if (!target.classList.contains('small-box') && pElement && pElement.childElementCount === 1 && pElement.firstElementChild.tagName === 'A') {
+  } else if (
+    !target.classList.contains('small-box') &&
+    pElement &&
+    pElement.childElementCount === 1 &&
+    pElement.firstElementChild.tagName === 'A'
+  ) {
     textDiv.removeChild(pElement);
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('hero-banner-button-container');
