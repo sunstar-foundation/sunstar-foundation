@@ -466,6 +466,18 @@ main pre {
   height: 24px;
 }
 
+.icon.icon-clock {
+  background-image: url("/icons/time.svg");
+  width: 24px;
+  height: 24px;
+}
+
+.icon.icon-ticket {
+  background-image: url("/icons/ticket.svg");
+  width: 24px;
+  height: 24px;
+}
+
 .icon.icon-download {
   width: 1rem;
   height: 1rem;
