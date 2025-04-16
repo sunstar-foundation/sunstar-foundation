@@ -1,4 +1,9 @@
 /* event-info.css - Mobile first styles */
+
+.section.event-info-container .section-container {
+  width: 100%;
+}
+
 .event-info-container {
   display: flex;
   flex-direction: column;
@@ -48,11 +53,11 @@
   gap: 0.75rem;
 }
 
-/* Desktop styles */
-@media (min-width: 62rem) {
+@media (min-width: 77rem) {
   .event-info-container {
     flex-direction: row;
     min-height: 400px;
+    width: 100%;
   }
 
   .event-info-image {

@@ -1,6 +1,7 @@
 .hero-event-container .section-container {
   margin-top: 0 !important;
   margin-bottom: 0;
+  width: 100%;
 }
 
 .hero-event-container {
@@ -63,7 +64,7 @@
   flex-direction: column;
   flex: 1;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .event-date,
@@ -160,6 +161,9 @@
     padding: 64px 24px;
   }
 
+  .hero-event-text {
+    align-items: center;
+  }
   .hero-event-container p {
     text-align: center;
   }
