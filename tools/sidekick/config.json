@@ -17,6 +17,23 @@
       "isPalette": true,
       "includePaths": ["**.docx**"],
       "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"
+    },
+    {
+      "id": "preflight",
+      "titleI18n": {
+        "en": "Preflight"
+      },
+      "environments": ["preview"],
+      "event": "preflight"
+    },
+    {
+      "id": "aem-genai-variations",
+      "titleI18n": {
+        "en": "Generate with AI"
+      },
+      "environments": ["preview"],
+      "includePaths": ["**.docx**"],
+      "event": "aem-genai-variations-sidekick"
     }
   ]
 }
