@@ -94,7 +94,7 @@ function addHeroVerticalTabs(doc) {
     const cells = [['Hero-Vertical-Tabs']];
     const heroMenu = doc.createElement('ul');
     hero.querySelectorAll('.auto-hero-menu li a').forEach((a) => {
-      a.href = 'https://main--sunstar-foundation--sunstar-foundation.hlx.live'.concat(a.href).replace(/\/$/, '');
+      a.href = 'https://main--sunstar-foundation--sunstar-foundation.aem.live'.concat(a.href).replace(/\/$/, '');
       const li = doc.createElement('li');
       if (a.classList.contains('active')) {
         const strong = doc.createElement('strong');
