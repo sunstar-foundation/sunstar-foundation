@@ -366,3 +366,15 @@ main .table.style-list table tbody tr:first-of-type td:last-of-type {
     }
 
 }
+/*テストeu-d*/
+   main .table.text-table.with-image table tr td {
+        flex-basis: calc(100% - 15em);
+    }
+
+    main .table.text-table.with-image table tr td:first-child {
+        flex-basis: 15em;
+    }
+
+    main .table.text-table.with-image table td p {
+        line-height: 4em;
+    }
