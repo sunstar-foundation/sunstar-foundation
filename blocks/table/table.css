@@ -378,3 +378,6 @@ main .table.style-list table tbody tr:first-of-type td:last-of-type {
     main .table.text-table.with-image table td p {
         line-height: 4em;
     }
+main .table.text-table.with-image table td p {
+        line-height: 4em;
+    }
