@@ -70,7 +70,7 @@ function addMidNav(document, url) {
   const midNav = document.querySelector('nav.ss-header-middle');
   if (midNav) {
     midNav.innerHTML = `
-    <a href='https://main--sunstar--sunstar-foundation.hlx.page/${lang}'>:sunstar-logo:</a>
+    <a href='https://main--sunstar-foundation--sunstar-foundation.aem.page/${lang}'>:sunstar-logo:</a>
     <h4>Sunstar</h4>
   `;
     midNav.after(document.createElement('hr'));

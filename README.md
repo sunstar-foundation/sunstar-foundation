@@ -4,8 +4,8 @@ Franklin project for https://www.sunstar-foundation.org/
 
 ## Environments
 
-- Preview: https://main--sunstar-foundation--sunstar-foundation.hlx.page/
-- Live: https://main--sunstar-foundation--sunstar-foundation.hlx.live/
+- Preview: https://main--sunstar-foundation--sunstar-foundation.aem.page/
+- Live: https://main--sunstar-foundation--sunstar-foundation.aem.live/
 
 ## Installation
 
@@ -27,7 +27,7 @@ npm run lint
 
 ## Adding Visual Tests
 Visual testing is integrated as a [Github workflow](https://github.com/sunstar-foundation/sunstar-foundation/blob/main/.github/workflows/visual-tests.yaml) which executes on any PR submission or modification. The testing framwork does a screenshot diff betwen the `main` and PR `branch`. The screenshots are taken from the following places:
-- [Block library](https://main--sunstar-foundation--sunstar-foundation.hlx.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/&index=0)
+- [Block library](https://main--sunstar-foundation--sunstar-foundation.aem.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/&index=0)
 - [Test paths](https://github.com/sunstar-foundation/sunstar-foundation/blob/b4dff52eb2c126c54655829bf110719d77cafe92/.github/workflows/visual-tests.yaml#L8) (Space seperated list of paths to test)
     For e.g. if your change is on a page like `/brands`, you can add it to the list as below
       ```

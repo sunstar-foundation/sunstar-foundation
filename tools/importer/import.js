@@ -492,7 +492,7 @@ function getFomattedDate(newsDate) {
  */
 function fixRelativeLinks(document) {
   document.querySelectorAll('a').forEach((a) => {
-    const targetDomain = 'https://main--sunstar-foundation--sunstar-foundation.hlx.page';
+    const targetDomain = 'https://main--sunstar-foundation--sunstar-foundation.aem.page';
     // if the link is relative, make it absolute
     if (a.href.startsWith('/')) {
       let link = a.href;

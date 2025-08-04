@@ -1,4 +1,6 @@
 {
   "extends": ["config:recommended"],
+  "branchPrefix": "renovate-",
+  "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}-{{{newMinor}}}-x{{#if isLockfileUpdate}}-lockfile{{/if}}",
   "prBodyNotes": ["Test URLs:\r\n- Original: https:\/\/www.sunstar-foundation.org\r\n- Before: https:\/\/main--sunstar-foundation--sunstar-foundation.aem.live\r\n- After: https:\/\/{{{branchName}}}--sunstar-foundation--sunstar-foundation.aem.live"]
 }
