@@ -310,7 +310,41 @@ main .table.style-list table tbody tr:first-of-type td:first-of-type,
 main .table.style-list table tbody tr:first-of-type td:last-of-type {
     padding: 5px;
 }
+/* Table unset varient */
+main .table.table-unset tr {
+    display: table-row;
+}
+main .table.table-unset span.icon {
+    height: 1rem;
+    margin-bottom: unset;
+    margin-left: unset;
+}
 
+main .table.table-unset a.button.primary {
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: unset;
+    margin-right: 1rem;
+    color: var(--secondary);
+    background-color: transparent;
+    font-weight: var(--font-weight-medium);
+    line-height: 1.7em;
+    min-width: unset;
+    height: unset;
+}
+
+main .table.table-unset table tbody tr:first-of-type td {
+    text-align: center;
+}
+
+main .table.table-unset table tbody tr td {
+    width: unset;
+}
+
+main .table.table-unset table tbody tr:first-of-type td:first-of-type,
+main .table.table-unset table tbody tr:first-of-type td:last-of-type {
+    padding: 5px;
+}
 @media (min-width: 62rem) {
     main .multiple-table {
         display: flex;
@@ -366,18 +400,3 @@ main .table.style-list table tbody tr:first-of-type td:last-of-type {
     }
 
 }
-/*テストeu-d*/
-   main .table.text-table.with-image table tr td {
-        flex-basis: calc(100% - 15em);
-    }
-
-    main .table.text-table.with-image table tr td:first-child {
-        flex-basis: 15em;
-    }
-
-    main .table.text-table.with-image table td p {
-        line-height: 4em;
-    }
-main .table.text-table.with-image table td p {
-        line-height: 4em;
-    }
