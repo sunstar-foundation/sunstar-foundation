@@ -400,8 +400,3 @@ main .table.table-unset table tbody tr:first-of-type td:last-of-type {
     }
 
 }
-/*test*/
-    main .table.text-table.with-image table td p {
-        line-height: 4em;
-    }
-    /*test*/
