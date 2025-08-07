@@ -1,8 +1,10 @@
-div.news-banner-wrapper {
+div.news-banner-test-wrapper {
   background-color: var(--transparent-blue-light-color);
 }
-
-div.news-banner {
+div.news-banner-test-wrapper.dentistry {
+margin-top: 30px;
+}
+div.news-banner-test {
   display: flex;
   flex-direction: column;
   font-size: var(--body-font-size-s);
@@ -11,47 +13,47 @@ div.news-banner {
   padding: 16px;
 }
 
-.news-banner a {
+.news-banner-test a {
   line-height: 21px;
 }
 
-.news-banner a:link,
-.news-banner a:visited {
+.news-banner-test a:link,
+.news-banner-test a:visited {
   color: var(--primary);
 }
 
-.news-banner a:hover {
+.news-banner-test a:hover {
   text-decoration: underline;
 }
 
-.news-banner span {
+.news-banner-test span {
   margin-right: 20px;
   margin-bottom: 16px;
 }
 
-.news-banner span:first-of-type {
+.news-banner-test span:first-of-type {
   font-weight: var(--font-weight-bold);
 }
 
 @media (min-width:62rem) {
-  div.news-banner {
+  div.news-banner-test {
     flex-direction: row;
     font-weight: var(--font-weight-medium);
     line-height: 24px;
     max-width: 900px;
   }
 
-  .news-banner span {
+  .news-banner-test span {
     margin-bottom: 0;
   }
 
-  .news-banner span:first-of-type {
+  .news-banner-test span:first-of-type {
     font-weight: var(--font-weight-small);
   }
 }
 
 @media (min-width:77rem) {
-  div.news-banner {
+  div.news-banner-test {
     max-width: 1200px;
   }
 }
