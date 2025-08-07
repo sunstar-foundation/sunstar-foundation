@@ -23,6 +23,7 @@ export async function setLatestNewsArticle(block, placeholders) {
   if (blockCfg.category && blockCfg.category !== '') {
     blockCategory += `-${blockCfg.category.trim().toLowerCase()}`;
   }
+  const locale = getLanguage();
   const queryObj = await queryIndex(`${getLanguage()}-${blockCategory}`);
   const result = queryObj.where((el) => (el.path.includes('/newsroom/') || el.path.includes('/news/')) && el.publisheddate !== '0')
     .orderByDescending((el) => el.publisheddate)
