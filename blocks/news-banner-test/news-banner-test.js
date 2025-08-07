@@ -15,15 +15,11 @@ function setNewsBanner(block, text, path, title, lm) {
 }
 
 export async function setLatestNewsArticle(block, placeholders) {
-  const chunk = 15;
-  const blockType = 'highlight';
   const blockCfg = readBlockConfig(block);
   let blockCategory = 'news';
-  
   if (blockCfg.category && blockCfg.category !== '') {
     blockCategory += `-${blockCfg.category.trim().toLowerCase()}`;
   }
-  const locale = getLanguage();
   const queryObj = await queryIndex(`${getLanguage()}-${blockCategory}`);
   const result = queryObj.where((el) => (el.path.includes('/newsroom/') || el.path.includes('/news/')) && el.publisheddate !== '0')
     .orderByDescending((el) => el.publisheddate)
@@ -33,7 +29,6 @@ export async function setLatestNewsArticle(block, placeholders) {
   if (!result.length) {
     return;
   }
-
   const article = result[0];
   const newsTitle = article.pagename || article.breadcrumbtitle || article.title;
   const newsBannerHeadingText = placeholders[article.category] || placeholders.newstext;
