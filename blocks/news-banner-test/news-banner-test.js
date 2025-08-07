@@ -15,7 +15,7 @@ function setNewsBanner(block, text, path, title, lm) {
 }
 
 export async function setLatestNewsArticle(block, placeholders) {
-  const queryObj = await queryIndex(`${getLanguage()}-${blockCategory}`);
+  const queryObj = await queryIndex(`${getLanguage()}-search`);
 
   const result = queryObj.where((el) => (el.path.includes('/newsroom/') || el.path.includes('/news/')) && el.publisheddate !== '0')
     .orderByDescending((el) => el.publisheddate)
