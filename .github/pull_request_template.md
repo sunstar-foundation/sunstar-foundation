@@ -4,15 +4,15 @@ Fixes #<gh-issue-id>
 
 Test URLs:
 - Original: https://www.sunstar-foundation.org/<path>
-- Before: https://main--sunstar-foundation--sunstar-foundation.hlx.live/<path>
-- After: https://$branch--sunstar-foundation--sunstar-foundation.hlx.live/<path>
+- Before: https://main--sunstar-foundation--sunstar-foundation.aem.live/<path>
+- After: https://$branch--sunstar-foundation--sunstar-foundation.aem.live/<path>
 
 - [ ] New Blocks introduced in this PR
       If yes, please provide details below
 
 Block Name    | Documentation
 ------------- | -------------
- For e.g. cards | [doc-link](https://main--sunstar-foundation--sunstar-foundation.hlx.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/cards&index=0)
+ For e.g. cards | [doc-link](https://main--sunstar-foundation--sunstar-foundation.aem.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/cards&index=0)
 
 
 
@@ -20,4 +20,4 @@ Block Name    | Documentation
 
 Variation Name    | Documentation
 ------------- | -------------
- For e.g. cards (grid)  | [doc-link](https://main--sunstar-foundation--sunstar-foundation.hlx.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/cards&index=2)
+ For e.g. cards (grid)  | [doc-link](https://main--sunstar-foundation--sunstar-foundation.aem.page/tools/sidekick/library.html?plugin=blocks&path=/sidekick/blocks/cards&index=2)

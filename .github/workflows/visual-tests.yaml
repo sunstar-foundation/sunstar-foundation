@@ -7,8 +7,8 @@ on:
 env:
   TEST_PATHS: "/en/ /en/about-us /en/about-us/message /en/awards/awards-photo-gallery/1107 /en/newsroom/1229"
   TEST_PATHS_INDEXES: "/sidekick/library.json "
-  DOMAIN_MAIN: "main--sunstar-foundation--sunstar-foundation.hlx.page"
-  DOMAIN_BRANCH: "${{github.head_ref}}--sunstar-foundation--sunstar-foundation.hlx.page"
+  DOMAIN_MAIN: "main--sunstar-foundation--sunstar-foundation.aem.page"
+  DOMAIN_BRANCH: "${{github.head_ref}}--sunstar-foundation--sunstar-foundation.aem.page"
 
 jobs:
   compare-pages:

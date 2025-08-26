@@ -1,8 +1,9 @@
 import {
   buildBlock, createOptimizedPicture, decorateBlock,
-  getFormattedDate, getMetadata, loadBlock, readBlockConfig,
+  getFormattedDate, loadBlock, readBlockConfig, fetchPlaceholders,
 } from '../../scripts/lib-franklin.js';
 import { queryIndex, getLanguage } from '../../scripts/scripts.js';
+
 
 // Result parsers parse the query results into a format that can be used by the block builder for
 // the specific block types
@@ -58,14 +59,10 @@ const resultParsers = {
   },
 };
 
-function getMetadataNullable(key) {
-  const meta = getMetadata(key);
-  return meta === '' ? null : meta;
-}
 
 // The below function is leveraged for View More button functionality
 // eslint-disable-next-line
-  async function loadMoreResults(block, blockType, results, blockCfg, loadMoreContainer, chunk, locale) {
+async function loadMoreResults(block, blockType, results, blockCfg, loadMoreContainer, chunk, locale) {
   const currentResults = document.querySelectorAll('.other').length;
   const slicedResults = results.slice(currentResults, currentResults + chunk);
   const blockContents = resultParsers[blockType](slicedResults, blockCfg, locale);
@@ -88,14 +85,15 @@ function getMetadataNullable(key) {
 
 // This is the default loading of the results
 async function loadResults(block, blockType, results, blockCfg, chunk, locale) {
+  const placeholders = await fetchPlaceholders(getLanguage());
   let slicedResults = 0;
-  let loadMoreContainer = 0;
+  let loadMoreContainer = null;
   let currentResults = 0;
   if (results.length > chunk) {
     currentResults = document.querySelectorAll('.other').length;
     slicedResults = results.slice(currentResults, currentResults + chunk);
     loadMoreContainer = document.createElement('div');
-    loadMoreContainer.innerHTML = '<button class="load-more-button">View more</button>';
+    loadMoreContainer.innerHTML = '<button class="load-more-button">'+placeholders['view-more']+'</button>';
     loadMoreContainer.classList.add('load-more-container');
     loadMoreContainer.addEventListener('click', () => {
       loadMoreResults(block, blockType, results, blockCfg, loadMoreContainer, chunk, locale);
@@ -117,12 +115,15 @@ async function loadResults(block, blockType, results, blockCfg, chunk, locale) {
   decorateBlock(builtBlock);
   await loadBlock(builtBlock);
 
-  if (results.length > currentResults) {
+  if (results.length > currentResults && loadMoreContainer) {
     const mobileMedia = window.matchMedia('(max-width: 992px)');
     if (mobileMedia.matches) {
       builtBlock.querySelector('.others').after(loadMoreContainer);
-    } else builtBlock.after(loadMoreContainer);
-  } else loadMoreContainer.remove();
+    } else {
+      builtBlock.after(loadMoreContainer);
+    }
+  }
+
   return builtBlock;
 }
 
@@ -133,19 +134,17 @@ export default async function decorate(block) {
   const chunk = 15;
   const blockType = 'highlight';
   const blockCfg = readBlockConfig(block);
-  const locale = getLanguage();
-  const queryObj = await queryIndex(`${getLanguage()}-search`);
+  let blockCategory = 'news';
+  
+  if (blockCfg.category && blockCfg.category !== '') {
+    blockCategory += `-${blockCfg.category.trim().toLowerCase()}`;
+  }
 
-  const omitPageTypes = getMetadataNullable('omit-page-types');
+  const locale = getLanguage();
+  const queryObj = await queryIndex(`${getLanguage()}-${blockCategory}`);
+
   // eslint-disable-next-line prefer-arrow-callback
-  const results = queryObj.where(function filterElements(el) {
-    const elPageType = (el.pagetype ?? '').trim().toLowerCase();
-    let match = false;
-    match = (!omitPageTypes || !(omitPageTypes.split(',').includes(elPageType)));
-    return match;
-  })
-    // eslint-disable-next-line
-      .orderByDescending((el) => (blockCfg.sort ? parseInt(el[blockCfg.sort.trim().toLowerCase()], 10) : el.path))
+  const results = queryObj.orderByDescending((el) => (blockCfg.sort ? parseInt(el[blockCfg.sort.trim().toLowerCase()], 10) : el.path))
     .toList()
     .filter((x) => { const itsDate = getFormattedDate(new Date(parseInt(x[blockCfg.sort.trim().toLowerCase()], 10))).split(', '); return (parseInt(itsDate[itsDate.length - 1], 10) > 2000); });
   block.innerHTML = '';
