@@ -575,6 +575,13 @@ button:focus {
   cursor: pointer;
 }
 
+a.button.primary.disabled, a.button.primary:disabled {
+  opacity: 0.5;
+  color: var(--white);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 button:disabled,
 button:disabled:hover {
   background-color: var(--overlay-background-color);
