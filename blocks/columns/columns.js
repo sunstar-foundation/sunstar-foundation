@@ -4,6 +4,7 @@ import {
   wrapImgsInLinks,
 } from '../../scripts/scripts.js';
 import { loadEmbed } from '../embed/embed.js';
+import { readBlockConfig } from '../../scripts/lib-franklin.js';
 
 export function applySplitPercentages(block) {
   let ratios = [];
@@ -95,12 +96,13 @@ function applyVerticalCellAlignment(block) {
   });
 }
 
-export function applyCellAlignment(block) {
+export function applyCellAlignment(block) { 
   applyHorizontalCellAlignment(block);
   applyVerticalCellAlignment(block);
 }
 
 export default function decorate(block) {
+  
   const background = block.classList.contains('backgroundimage');
   if (background) {
     // remove first column if background is enabled and use the image
@@ -187,6 +189,8 @@ export default function decorate(block) {
     });
   });
 
+  decorateDisabledButtons(block);
+
   // decorate columns with text-col content
   [...block.children].forEach((row) => {
     const cells = row.querySelectorAll('div:not(.img-col)');
@@ -213,9 +217,11 @@ export default function decorate(block) {
       [...row.children].forEach((col) => {
         const anchors = col.querySelectorAll('a');
         if (anchors.length) {
+        
           [...anchors].forEach((a) => {
             a.title = a.title || a.textContent;
             const up = a.parentElement;
+            //check if link as #disabled at the end or href
             if (!a.querySelector('img') && up.tagName !== 'LI') {
               if (up.tagName === 'P') {
                 up.classList.add('button-container');
@@ -279,4 +285,21 @@ export default function decorate(block) {
 
   applySplitPercentages(block);
   applyCellAlignment(block);
+}
+
+
+export function decorateDisabledButtons(block) {
+  // get all links from contents which is text
+  const anchors = block.querySelectorAll('a');
+  // loop through all links
+  [...anchors].forEach((a) => {
+    //check if link as #disabled at the end or href
+    if (a.href.endsWith("#disabled") || a.href === "") {
+      a.classList.add('disabled', 'button', 'primary');
+      a.href = 'javascript:void(0)';
+      a.setAttribute('aria-disabled', 'true'); 
+      //skip to next anchor
+      return;
+    }
+  });
 }

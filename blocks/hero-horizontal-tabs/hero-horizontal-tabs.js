@@ -12,6 +12,8 @@
 
 import { getNamedValueFromTable } from '../../scripts/scripts.js';
 import { createTabs, addTabs } from '../../scripts/blocks-utils.js';
+import { decorateDisabledButtons } from '../columns/columns.js';
+import { readBlockConfig } from '../../scripts/lib-franklin.js';
 
 function getImage(block) {
   const div = getNamedValueFromTable(block, 'Image');
@@ -31,6 +33,8 @@ export default function decorate(block) {
   const image = getImage(block);
   const text = getText(block);
   const tabs = createTabs(block, text);
+
+  decorateDisabledButtons(block);
 
   if (tabs) {
   // move the tab riders in front
