@@ -12,8 +12,7 @@
 
 import { getNamedValueFromTable } from '../../scripts/scripts.js';
 import { createTabs, addTabs } from '../../scripts/blocks-utils.js';
-import { decorateDisabledButtons } from '../columns/columns.js';
-import { readBlockConfig } from '../../scripts/lib-franklin.js';
+import { decorateDisabledButtons } from '../../scripts/lib-franklin.js';
 
 function getImage(block) {
   const div = getNamedValueFromTable(block, 'Image');
