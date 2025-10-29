@@ -842,6 +842,27 @@ export function decorateRenderHints(block) {
   });
 }
 
+
+/**
+ * Decorate buttons with disabled state
+ * @param {Element} block whose buttons are to be decorated as disabled
+ */
+export function decorateDisabledButtons(block) {
+  // get all links from contents which is text
+  const anchors = block.querySelectorAll('a');
+  // loop through all links
+  [...anchors].forEach((a) => {
+    //check if link as #disabled at the end or href
+    if (a.href.endsWith("#disabled") || a.href === "") {
+      a.classList.add('disabled', 'button', 'primary');
+      a.href = 'javascript:void(0)';
+      a.setAttribute('aria-disabled', 'true'); 
+      //skip to next anchor
+      return;
+    }
+  });
+}
+
 export function isInternalPage() {
   return getHref().indexOf('/sidekick/blocks/') > 0 || getHref().indexOf('/_tools/') > 0;
 }
