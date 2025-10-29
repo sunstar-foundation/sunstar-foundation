@@ -1,4 +1,7 @@
+import { decorateDisabledButtons } from '../../scripts/lib-franklin.js';
+
 export default function decorate(block) {
+  decorateDisabledButtons(block);
   if (block.classList.contains('highlight')) {
     const grandChildren = block.children[0].children;
 
