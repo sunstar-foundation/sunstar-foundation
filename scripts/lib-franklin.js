@@ -848,12 +848,14 @@ export function decorateRenderHints(block) {
  * @param {Element} block whose buttons are to be decorated as disabled
  */
 export function decorateDisabledButtons(block) {
+  console.log('decorateDisabledButtons');
   // get all links from contents which is text
   const anchors = block.querySelectorAll('a');
+  console.log(anchors);
   // loop through all links
   [...anchors].forEach((a) => {
     //check if link as #disabled at the end or href
-    if (a.href.endsWith("#disabled") || a.href === "") {
+    if (a.href.endsWith("disabled") || a.href === "") {
       a.classList.add('disabled', 'button', 'primary');
       a.href = 'javascript:void(0)';
       a.setAttribute('aria-disabled', 'true'); 
