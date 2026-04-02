@@ -11,10 +11,15 @@
   color: var(--white);
 }
 
+.block.quote.extra-large {
+  font-size: var(--body-font-size-xxl);
+}
+
 .block.quote.no-border {
   border-left: none;
   padding-left: 0;
 }
+
 
 .block.quote .quote-content {
   margin-bottom: 1.5rem;
@@ -39,6 +44,10 @@
   position: absolute;
   bottom: -5.25rem;
   right: 0;
+}
+
+.block.quote.single-quote::after {
+  display: none!important;
 }
 
 .block.quote .quote-caption {

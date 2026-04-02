@@ -118,6 +118,14 @@
   padding-bottom: 10px;
 }
 
+.columns.first-p-larger p:first-of-type {
+  font-size: var(--body-font-size-xl);
+}
+
+.columns.second-p-larger p:nth-of-type(2) {
+  font-size: var(--body-font-size-xl);
+}
+
 .columns.native-image-sizes .text-col {
   width: 100%;
 }
@@ -148,6 +156,12 @@
   font-weight: var(--font-weight-medium);
   line-height: 1.3em;
   margin: 0 auto 1rem;
+}
+
+.columns.no-margin-headings h2,
+.columns.no-margin-headings h3,
+.columns.no-margin-headings h4 {
+  margin: 0!important;
 }
 
 .columns :not(.table) h4 {
